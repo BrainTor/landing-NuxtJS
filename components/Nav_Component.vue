@@ -1,5 +1,5 @@
 <template>
-    <div class="nav_bar" v-if="this.what_display">
+    <div class="nav_bar" v-if="what_display">
         <div class="logo" >
             <img src="../assets/img/logo.png" style="width: 40px;" alt="">
             <p class="logo_text">Silver-tech</p>
@@ -51,7 +51,7 @@
             <h3 style="color: white; font-size: 22px; "  @click.prevent="toggleDropdown"><fa icon="compass" /></h3>
             <ul v-if="isDropdownOpen" class="dropdown-menu">
                 <nuxt-link to="/">
-                    <li><a href="#"><fa icon = "house"></fa> На главную</a></li>
+                    <li><a href="#"><fa :icon="['fas', 'house']" /> На главную</a></li>
                 </nuxt-link>
                 
                 <nuxt-link to="/study">

@@ -1,8 +1,8 @@
 <template>
     <div class="footer_container">
-        <center>
-            <h1 style="padding-top: 20px;padding-bottom: 20px;">Я всегда готов к общению! Свяжитесь со мной</h1>
-        </center>
+     >
+            <h1 style="padding-top: 20px;padding-bottom: 20px; text-align: center;">Я всегда готов к общению! Свяжитесь со мной</h1>
+     
 
         <div class="main_row">
 

@@ -23,9 +23,9 @@
 
         <p style="margin-top: 10px; margin-bottom: 10px;">Введите номер телефона</p>
         <input type="text" placeholder="+7 900 000 00 00" class="input_two_row" ref="number_input">
-        <center>
-            <p style="color: gray;margin-top: 0.5rem;">или</p>
-        </center>
+
+            <p style="color: gray;margin-top: 0.5rem; text-align: center;">или</p>
+     
         <p class="ustal_nazv">Введите ссылку на социальную сеть</p>
         <div style="display: flex;flex-direction: column;" class="bottom_part_connect">
             <input placeholder="https://t.me/@name" ref="social_input" type="text" class="input_two_row" style="margin-top: 10px; margin-bottom: 10px;">

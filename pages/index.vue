@@ -1,9 +1,9 @@
 <template>
   <div class="main_page">
       
-  <Nav_Component @scroll_to="this.handle_nav" place="main" class="nav_bar" />
+  <Nav_Component @scroll_to="handle_nav" place="main" class="nav_bar" />
 
-  <Modal_Connect :isVisible="this.isVisible" @close="this.togle_Modal" />
+  <Modal_Connect :isVisible="isVisible" @close="togle_Modal" />
 
 
   <section class="header_section">
@@ -59,18 +59,18 @@
           </div>
       </div>
 
-      <center>
+      <div style="display: flex; justify-content: center;">
 
           <button class="connect_with_me" @click="togle_Modal">
               <fa icon="link" /> Свяжитесь со мной
           </button>
-      </center>
+      </div>
 
 
   </section>
 
   <section ref="section_why_pick_me" class="sectionSecond">
-      <center>
+    <div style="display: flex; align-items: center; flex-direction: column; width: 100%;">
           <h1 style="padding-top: 20px;">Почему стоит выбрать именно меня?</h1>
           <h3 style="font-weight: 400;margin-top: 20px;">Имею большой опыт создания приложений для разных
               платформ,<br> а также исходя из
@@ -108,12 +108,12 @@
                   </p>
               </div>
           </div>
-      </center>
+        </div>
 
   </section>
 
   <section ref="section_study" class="section_study">
-      <center>
+      <div style="display: flex; align-items: center; flex-direction: column; width: 100%;">
           <h1>Обучение:</h1>
 
           <h3 style="font-weight: 400;margin-top: 20px;">
@@ -173,18 +173,18 @@
               <Button_more></Button_more>
           </nuxt-link>
 
-      </center>
+        </div>
 
   </section>
 
 
   <section ref="section_code" class="sectionSecond" style="padding-top: 20px;">
-      <center>
-          <h1>
+
+          <h1 style="text-align: center;">
               Разработка
           </h1>
 
-      </center>
+  
       <div class="profile-card" style="background-color: transparent;">
           <img src="@/assets/img/programmer.jpg" alt="Profile Photo" class="profile-photo" style="width: 400px;">
           <div class="profile-info">
@@ -210,17 +210,16 @@
               </p>
           </div>
       </div>
-      <center>
-          <nuxt-link to="/code">
-              <Button_more style="margin-top: 2rem;"></Button_more>
-          </nuxt-link>
-
-      </center>
+      <div style="display: flex; justify-content: center; width: 100%;">
+        <nuxt-link to="/code">
+            <Button_more style="margin-top: 2rem;"></Button_more>
+        </nuxt-link>
+      </div>
 
   </section>
 
   <section ref="section_contact">
-      <Footer_Component @toggle="this.togle_Modal" />
+      <Footer_Component @toggle="togle_Modal" />
   </section>
   </div>
 

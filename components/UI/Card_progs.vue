@@ -29,6 +29,10 @@
 </template>
 
 <script>
+import logo_rg from '@/assets/img/progs/logo/logo_rg.png'
+import logo_delphin from '@/assets/img/progs/logo/logo_delphin.png'
+import logo_dela from '@/assets/img/progs/logo/logo_dela.png'
+import logo from '@/assets/img/progs/logo/logo.png'
 export default {
     name: 'Card_progs',
     data() {
@@ -81,10 +85,10 @@ export default {
                     "Silver-tech"
                 ],
                 imgs:[
-                    require('@/assets/img/progs/logo/logo_rg.png'),
-                    require('@/assets/img/progs/logo/logo_delphin.png'),
-                    require('@/assets/img/progs/logo/logo_dela.png'),
-                    require('@/assets/img/progs/logo/logo.png')
+                    logo_rg,
+                    logo_delphin,
+                    logo_dela,
+                    logo
                 ]
             },
             text_default: '',

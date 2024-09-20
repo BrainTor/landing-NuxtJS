@@ -7,7 +7,7 @@
             </div>
         </Modal_ads>
 
-        <Modal_Connect :isVisible="this.isVisible" @close="this.togle_Modal" />
+        <Modal_Connect :isVisible="isVisible" @close="togle_Modal" />
         <div ref="nav">
 
         </div>
@@ -116,11 +116,11 @@
         </section>
 
         <section style="padding-top: 20px; padding-bottom: 20px;">
-            <center>
-                <h1>
+      
+                <h1 style="text-align: center;">
                     Практические примеры
                 </h1>
-            </center>
+      
             <Card_progs @toggle="togle_Modal"></Card_progs>
         </section>
 
@@ -138,6 +138,9 @@ import Nav_Component from '@/components/Nav_Component.vue';
 import Modal_ads from '@/components/Modal_ads.vue'
 import Card_progs from '@/components/UI/Card_progs.vue';
 import Modal_Connect from '@/components/Modal_Connect.vue';
+import img from '@/assets/img/progs/cyber.jpg'
+import img1 from '@/assets/img/progs/block.jpg'
+
 //import axios from 'axios';
 export default {
     name: 'CodePage',
@@ -180,7 +183,7 @@ export default {
             endTime: 0,
             local_ref: null,
             isVisible: false,
-            img_src: require('@/assets/img/progs/cyber.jpg')
+            img_src:''
         }
     },
     methods: {
@@ -208,10 +211,10 @@ export default {
         el.scrollIntoView({ behavior: 'smooth', block: 'start' });
         if (process.client) {
             if (window.innerWidth < 700)
-                this.img_src = require('@/assets/img/progs/cyber.jpg')
+                this.img_src = img
             else {
                 this.$refs.for_cont.style.width = ''
-                this.img_src = require('@/assets/img/progs/block.jpg')
+                this.img_src = img1
             }
         }
         if (sessionStorage.getItem('ads') == null) {

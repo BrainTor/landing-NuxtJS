@@ -26,7 +26,7 @@
                 <div class="base"></div>
             </div>
         </div>
-        <center>
+        <div style="display: flex; justify-content: center;">
             <div class="buttons">
                 <nuxt-link to = '/study'>
                     <button class="controll_button" v-if="!is_mobile">Вернуться назад</button>
@@ -38,7 +38,7 @@
                 <button class="controll_button" @click="new_lvl" v-if="is_win && !is_mobile">Следующий уровень</button>
                 <button class="controll_button" @click="new_lvl" v-else-if="is_win"><fa icon="chevron-right" /></button>
             </div>
-        </center>
+        </div>
    
 
 

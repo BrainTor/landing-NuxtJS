@@ -4,16 +4,16 @@
         <div class="modal-overlay" @click="closeModal"></div>
         <div class="modal-content">
             <button class="close-btn" @click="closeModal">&times;</button>
-            <center>
+            <div style="display: flex; justify-content: center; width: 100%;">
                 <img src="@/assets/img/rocket.png" style="width: 100px;">
-            </center>
+            </div>>
 
            
 
             <h2 style="text-align: center; margin-top: 1rem;">Подождите, у меня специальное предложение.</h2>
-            <center>
+            <div style="display: flex; justify-content: center; width: 100%;">
                 <slot></slot>
-            </center>
+            </div>
             
             <div style="display: flex; flex-direction: column; align-items:center;">
                 <h3 style="text-align: center; color:red" class="spawn" v-if="is_number_bad">Вы ввели неверный номер телефона</h3>
