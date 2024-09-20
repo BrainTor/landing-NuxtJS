@@ -1,0 +1,1 @@
+import{_ as o,r as e,o as c,c as n,a as s,b as a}from"./CXDA0QrK.js";const r={name:"Back_Button"},_={style:{width:"fit-content"}},i={class:"back"};function p(d,f,B,l,m,u){const t=e("fa");return c(),n("div",_,[s("button",i,[a(t,{icon:"arrow-left"})])])}const h=o(r,[["render",p]]);export{h as B};

@@ -28,10 +28,12 @@
 
 
         </div>
-        <button style="width: fit-content; background-color: transparent; border: 0px;" @click="click_button" ref="main_but">
-            <img :src="img_src" class="ham_img_mobile"  width="600px" style="cursor: pointer;   -webkit-tap-highlight-color: transparent;user-select: none;outline: none;">
+        <button style="width: fit-content; background-color: transparent; border: 0px;" @click="click_button"
+            ref="main_but">
+            <img :src="img_src" class="ham_img_mobile" width="600px"
+                style="cursor: pointer;   -webkit-tap-highlight-color: transparent;user-select: none;outline: none;">
         </button>
-       
+
         <div class="row_ham">
             <div v-if="!is_mobile">
                 <h2>Ваша энергия:</h2>
@@ -58,22 +60,10 @@
 
 <script>
 import Back_Button from '@/components/UI/Back_Button.vue';
-//import axios from 'axios';
+import axios from 'axios';
+import { useHead } from '@unhead/vue';
 export default {
     name: 'ham',
-    head(){
-        return{
-            title:'Почти Hamster Combat', 
-            meta:[
-                {
-                    name:'description', content:'Игра по мотивам Hamster Combat И NotCoin в ней вы не заработаете, но хорошо проведете время!'
-                },
-                {
-                    name:'keywords', content:'Hammster Combat,Hammster Combat online, хомяк , игра хомяк, хомяк играть'
-                }
-            ]
-        }
-    },
     data() {
         return {
             money: 0,
@@ -92,19 +82,19 @@ export default {
                 require('@/assets/img/games/coin7.png')
             ],
             startTime: 0,
-            endTime:0,
-            local_ref:null,
-            is_mobile:false
+            endTime: 0,
+            local_ref: null,
+            is_mobile: false
         }
     }, components: {
         Back_Button
     }, methods: {
-        async send_location(ref , time) {
-            // axios.post(`http://${process.env.VUE_APP_BACK_IP}:${process.env.VUE_APP_BACK_PORT}/send_location`, {
-            //     location: 'game_ham',
-            //     referal: ref, 
-            //     time:time
-            // })
+        async send_location(ref, time) {
+            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+                location: 'game_ham',
+                referal: ref,
+                time: time
+            })
         },
         click_button() {
             if (this.energy <= 0) return
@@ -185,12 +175,28 @@ export default {
                 }, 400)
             }, 600)
 
+        },
+        updateMetaTags() {
+           
+            useHead({
+                title: 'Почти Hamster Combat',
+                meta: [
+                    {
+                        name: 'description', content: 'Игра по мотивам Hamster Combat И NotCoin в ней вы не заработаете, но хорошо проведете время!'
+                    },
+                    {
+                        name: 'keywords', content: 'Hammster Combat,Hammster Combat online, хомяк , игра хомяк, хомяк играть'
+                    }
+                ]
+            })
         }
+    }, created() {
+        this.updateMetaTags()
     },
     mounted() {
-        if(window.innerWidth<900) this.is_mobile = true
+        if (window.innerWidth < 900) this.is_mobile = true
         this.startTime = new Date();
-        if(localStorage.getItem('ref')!=null)
+        if (localStorage.getItem('ref') != null)
             this.local_ref = localStorage.getItem('ref')
         if (this.one_time) {
             this.one_time = false
@@ -221,12 +227,12 @@ export default {
         if (this.money > 100000000 && this.lvl == 7) this.img_src = this.sources[5]
 
     },
-    async beforeUnmount(){
+    async beforeUnmount() {
         this.endTime = new Date();
         let totalTimeSpent = Math.floor((this.endTime - this.startTime) / 1000);
-        totalTimeSpent = Math.floor(totalTimeSpent/60) != 0?
-        `Минут: ${Math.floor(totalTimeSpent/60)}, Секунд: ${Math.floor(totalTimeSpent%60)}`:
-        `Секунд: ${Math.floor(totalTimeSpent%60)}`
+        totalTimeSpent = Math.floor(totalTimeSpent / 60) != 0 ?
+            `Минут: ${Math.floor(totalTimeSpent / 60)}, Секунд: ${Math.floor(totalTimeSpent % 60)}` :
+            `Секунд: ${Math.floor(totalTimeSpent % 60)}`
         await this.send_location(this.local_ref, totalTimeSpent)
     }
 }

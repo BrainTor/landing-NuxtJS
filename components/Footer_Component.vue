@@ -1,6 +1,6 @@
 <template>
     <div class="footer_container">
-     >
+  
             <h1 style="padding-top: 20px;padding-bottom: 20px; text-align: center;">Я всегда готов к общению! Свяжитесь со мной</h1>
      
 

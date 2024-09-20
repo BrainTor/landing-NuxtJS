@@ -1,5 +1,5 @@
-SSR NUXT
-sitemap, robots.txt
+SSR NUXT ✅
+sitemap, robots.txt✅
 deploy 
 Добавление в консоли 
 тест 

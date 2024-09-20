@@ -4,9 +4,17 @@ export default defineNuxtConfig({
   // Nitro preset
   nitro: {
     preset: 'node-server', // Убедитесь, что выбран правильный режим работы Nitro
-    
+
   },
- 
+
+  runtimeConfig: {
+
+    public: {
+      NUXT_APP_BACK_IP: process.env.NUXT_APP_BACK_IP, 
+      NUXT_APP_BACK_PORT:process.env.NUXT_APP_BACK_PORT,
+      NUXT_APP_LINK:process.env.NUXT_APP_LINK
+    }
+  },
   // Global page headers
   app: {
     head: {
@@ -18,7 +26,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { hid: 'description', name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
-        { property: 'og:image', content: `${process.env.VUE_APP_LINK}social.jpg` },
+        { property: 'og:image', content: `${process.env.NUXT_APP_LINK}social.jpg` },
         { name: 'robots', content: 'index, follow' }
       ],
       link: [
@@ -31,8 +39,8 @@ export default defineNuxtConfig({
             "@context": "https://schema.org",
             "@type": "Organization",
             "name": "Silver-Tech",
-            "url": `${process.env.VUE_APP_LINK}`,
-            "logo": `${process.env.VUE_APP_LINK}logo.png`,
+            "url": `${process.env.NUXT_APP_LINK}`,
+            "logo": `${process.env.NUXT_APP_LINK}logo.png`,
             "contactPoint": {
               "@type": "ContactPoint",
               "telephone": "+7 (960) 459-34-45",
@@ -71,7 +79,8 @@ export default defineNuxtConfig({
       ]
     }]
   ],
-
   // Build Configuration
-  build: {},
+  build: {
+    
+  },
 })

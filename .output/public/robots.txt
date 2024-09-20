@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://silver-tech.ru/sitemap.xml

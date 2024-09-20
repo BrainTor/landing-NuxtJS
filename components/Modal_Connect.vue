@@ -44,7 +44,7 @@
   </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 export default {
     name: 'Modal_Connect',
     props: {
@@ -61,13 +61,13 @@ export default {
             if(this.$refs.name_input.value == '' || this.$refs.third_name_input.value == '' || (this.$refs.number_input.value == ''&&this.$refs.social_input == '')||this.$refs.text_input.value == '')
               return this.is_something_bad = true
              
-            // else
-            //   axios.post(`http://${process.env.VUE_APP_BACK_IP}:${process.env.VUE_APP_BACK_PORT}/send_connect`,{
-            //       name:this.$refs.name_input.value,
-            //       third_name:this.$refs.third_name_input.value,
-            //       addres:this.$refs.number_input.value==''?this.$refs.number_input.value:this.$refs.social_input.value,
-            //       his_text:this.$refs.text_input.value
-            //   })
+            else
+              axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_connect`,{
+                  name:this.$refs.name_input.value,
+                  third_name:this.$refs.third_name_input.value,
+                  addres:this.$refs.number_input.value==''?this.$refs.number_input.value:this.$refs.social_input.value,
+                  his_text:this.$refs.text_input.value
+              })
             this.closeModal()
         }
     },data(){

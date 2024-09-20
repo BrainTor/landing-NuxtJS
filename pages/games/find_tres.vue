@@ -47,22 +47,10 @@
 
 <script>
 
-//import axios from 'axios';
+import axios from 'axios';
+import { useHead } from '@unhead/vue';
 export default {
     name: 'find_tres',
-    head(){
-        return{
-            title:'Поиск сокровищ Silver-tech', 
-            meta:[
-                {
-                    name:'description', content:'Игра по мотивам minecraft с элементами азарта, попробуйте сами!'
-                },
-                {
-                    name:'keywords', content:'minecraft, сундук из майнкрафта, игра, игра онлайн,маинкрафт,майнкрафт'
-                }
-            ]
-        }
-    },
     data() {
         return {
             win_number: -5,
@@ -161,15 +149,35 @@ export default {
             this.$refs.chest_row.appendChild(this.chests[chest_ref_name]);
         },
         async send_location(ref , time) {
-            // axios.post(`http://${process.env.VUE_APP_BACK_IP}:${process.env.VUE_APP_BACK_PORT}/send_location`, {
-            //     location: 'game_tres',
-            //     referal: ref, 
-            //     time:time
-            // })
+            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+                location: 'game_tres',
+                referal: ref, 
+                time:time
+            })
+        },
+        updateMetaTags() {
+     
+        
+            useHead({
+                title:'Поиск сокровищ Silver-tech', 
+            meta:[
+                {
+                    name:'description', content:'Игра по мотивам minecraft с элементами азарта, попробуйте сами!'
+                },
+                {
+                    name:'keywords', content:'minecraft, сундук из майнкрафта, игра, игра онлайн,маинкрафт,майнкрафт'
+                }
+            ]
+            })
         }
        
 
-    } ,async beforeUnmount(){
+    } ,
+    created(){
+        this.updateMetaTags()
+    },
+
+    async beforeUnmount(){
         this.endTime = new Date();
         let totalTimeSpent = Math.floor((this.endTime - this.startTime) / 1000);
         totalTimeSpent = Math.floor(totalTimeSpent/60) != 0?

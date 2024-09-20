@@ -1,0 +1,41 @@
+const interopDefault = r => r.default || r || [];
+const styles = {
+  "node_modules/nuxt/dist/app/entry.js": () => import('./entry-styles.CyHRuvXv.mjs').then(interopDefault),
+  "plugins/fontawesome.js": () => import('./fontawesome-styles.ChVcXwuw.mjs').then(interopDefault),
+  "pages/code.vue": () => import('./code-styles.BiTG5GIx.mjs').then(interopDefault),
+  "pages/games/calc.vue": () => import('./calc-styles.CZ-1d5Wm.mjs').then(interopDefault),
+  "pages/games/cross.vue": () => import('./cross-styles.B_hG4E50.mjs').then(interopDefault),
+  "pages/games/ham.vue": () => import('./ham-styles.DnWbCDQ4.mjs').then(interopDefault),
+  "pages/games/find_tres.vue": () => import('./find_tres-styles.Cy4CU4L0.mjs').then(interopDefault),
+  "pages/index.vue": () => import('./index-styles.TfB_MEfm.mjs').then(interopDefault),
+  "pages/study.vue": () => import('./study-styles.BKrUskxB.mjs').then(interopDefault),
+  "pages/code.vue?vue&type=style&index=0&scoped=c3d46139&lang.css": () => import('./code-styles.BSqkladj.mjs').then(interopDefault),
+  "node_modules/nuxt/dist/app/components/error-404.vue": () => import('./error-404-styles.BcoFjqgl.mjs').then(interopDefault),
+  "node_modules/nuxt/dist/app/components/error-500.vue": () => import('./error-500-styles.DPP87-Dp.mjs').then(interopDefault),
+  "components/Footer_Component.vue": () => import('./Footer_Component-styles.4q7jiBsL.mjs').then(interopDefault),
+  "components/Modal_Connect.vue": () => import('./Modal_Connect-styles.BP_VqEOj.mjs').then(interopDefault),
+  "components/Nav_Component.vue": () => import('./Nav_Component-styles.BSFRjn_8.mjs').then(interopDefault),
+  "components/Modal_ads.vue": () => import('./Modal_ads-styles.D7lRkGBz.mjs').then(interopDefault),
+  "pages/games/calc.vue?vue&type=style&index=0&scoped=dfde0412&lang.css": () => import('./calc-styles.C_sYsYJg.mjs').then(interopDefault),
+  "pages/games/cross.vue?vue&type=style&index=0&scoped=71df8f1f&lang.css": () => import('./cross-styles.BvSx6DHi.mjs').then(interopDefault),
+  "pages/games/find_tres.vue?vue&type=style&index=0&lang.css": () => import('./find_tres-styles.DvnJm9us.mjs').then(interopDefault),
+  "pages/games/find_tres.vue?vue&type=style&index=1&scoped=3420c4f0&lang.css": () => import('./find_tres-styles.BNesVMx0.mjs').then(interopDefault),
+  "pages/games/ham.vue?vue&type=style&index=0&scoped=390b0fa6&lang.css": () => import('./ham-styles.Ddfof6BR.mjs').then(interopDefault),
+  "pages/study.vue?vue&type=style&index=0&scoped=e7ffde8e&lang.css": () => import('./study-styles.Ca8mJa6F.mjs').then(interopDefault),
+  "components/UI/Card_progs.vue": () => import('./Card_progs-styles.BDFQ3seG.mjs').then(interopDefault),
+  "node_modules/nuxt/dist/app/components/error-500.vue?vue&type=style&index=0&scoped=f7ad9679&lang.css": () => import('./error-500-styles.DqmriZ_b.mjs').then(interopDefault),
+  "pages/index.vue?vue&type=style&index=0&scoped=4e946f81&lang.css": () => import('./index-styles.C-evZep-.mjs').then(interopDefault),
+  "components/UI/Back_Button.vue": () => import('./Back_Button-styles.CFJCrkMv.mjs').then(interopDefault),
+  "node_modules/nuxt/dist/app/components/error-404.vue?vue&type=style&index=0&scoped=00b6b518&lang.css": () => import('./error-404-styles.DRLC0U6S.mjs').then(interopDefault),
+  "components/Footer_Component.vue?vue&type=style&index=0&scoped=41cd555a&lang.css": () => import('./Footer_Component-styles.CIyUXDLC.mjs').then(interopDefault),
+  "components/UI/Card_progs.vue?vue&type=style&index=0&lang.css": () => import('./Card_progs-styles.BBD2uYpc.mjs').then(interopDefault),
+  "components/Modal_Connect.vue?vue&type=style&index=0&lang.css": () => import('./Modal_Connect-styles.D4DeneJ3.mjs').then(interopDefault),
+  "components/Nav_Component.vue?vue&type=style&index=0&scoped=45491cbf&lang.css": () => import('./Nav_Component-styles.CoruWWGO.mjs').then(interopDefault),
+  "components/Modal_ads.vue?vue&type=style&index=0&scoped=b33b6709&lang.css": () => import('./Modal_ads-styles.CEwuAuj0.mjs').then(interopDefault),
+  "components/UI/Back_Button.vue?vue&type=style&index=0&lang.css": () => import('./Back_Button-styles.COapYMtm.mjs').then(interopDefault),
+  "components/UI/Button_more.vue": () => import('./Button_more-styles.mRzXvkt-.mjs').then(interopDefault),
+  "components/UI/Button_more.vue?vue&type=style&index=0&scoped=5654905b&lang.css": () => import('./Button_more-styles.CekwW8kx.mjs').then(interopDefault)
+};
+
+export { styles as default };
+//# sourceMappingURL=styles.mjs.map

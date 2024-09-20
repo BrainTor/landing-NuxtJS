@@ -32,7 +32,7 @@
 </template>
 
 <script>
-//import axios from 'axios';
+import axios from 'axios';
 export default {
     name: 'Modal_ads',
     props: {
@@ -60,12 +60,12 @@ export default {
       return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     },
     async send_ads(){
-        // if(this.$refs.number_input.value != '')
-        //     axios.post(`http://${process.env.VUE_APP_BACK_IP}:${process.env.VUE_APP_BACK_PORT}/send_ads`,{
-        //         number:this.$refs.number_input.value 
-        //     })
-        // else
-        //     return this.is_number_bad = true 
+        if(this.$refs.number_input.value != '')
+            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_ads`,{
+                number:this.$refs.number_input.value 
+            })
+        else
+            return this.is_number_bad = true 
             
         this.$emit('close_ads');
     }

@@ -116,11 +116,11 @@
         </section>
 
         <section style="padding-top: 20px; padding-bottom: 20px;">
-      
-                <h1 style="text-align: center;">
-                    Практические примеры
-                </h1>
-      
+
+            <h1 style="text-align: center;">
+                Практические примеры
+            </h1>
+
             <Card_progs @toggle="togle_Modal"></Card_progs>
         </section>
 
@@ -140,8 +140,8 @@ import Card_progs from '@/components/UI/Card_progs.vue';
 import Modal_Connect from '@/components/Modal_Connect.vue';
 import img from '@/assets/img/progs/cyber.jpg'
 import img1 from '@/assets/img/progs/block.jpg'
-
-//import axios from 'axios';
+import axios from 'axios';
+import { useHead } from '@unhead/vue';
 export default {
     name: 'CodePage',
     components: {
@@ -151,30 +151,6 @@ export default {
         Card_progs,
         Modal_Connect
     },
-    head() {
-        const env_link = process.env.VUE_APP_LINK;
-        return {
-            title: 'Разработка на заказ Silver - Tech',
-  
-            meta: [
-                {
-                    name: 'description', content: 'Выполение на заказ любой сложности программы, а так же для любой платформы. Квалифицированный и опытный специалист поможет воплотить в жизнь, ваши технические бизнес-идеи'
-                },
-                {
-                    name: 'keywords', content: 'Разработка приложений,Кроссплатформенные приложения,Современные технологии,Индивидуальный подход,Мобильные приложения,Веб-разработка,Автоматизация бизнес-процессов,Примеры проектов,Опытный разработчик'
-                },
-                {
-                    property: 'og:title', content: 'Разработка на заказ Silver - Tech'
-                },
-                {
-                    property: 'og:description', content: 'Выполение на заказ любой сложности программы, а так же для любой платформы. Квалифицированный и опытный специалист поможет воплотить в жизнь, ваши технические бизнес-идеи'
-                },
-                {
-                    property: 'og_url', content: `${env_link}code`
-                }
-            ]
-        }
-    },
     data() {
         return {
             is_Visible_ads: false,
@@ -183,8 +159,12 @@ export default {
             endTime: 0,
             local_ref: null,
             isVisible: false,
-            img_src:''
+            img_src: ''
         }
+    },
+    
+    created(){
+        this.updateMetaTags()
     },
     methods: {
         hadle_ads() {
@@ -199,11 +179,35 @@ export default {
         },
         async send_location(ref, time) {
 
-            // await axios.post(`http://${process.env.VUE_APP_BACK_IP}:${process.env.VUE_APP_BACK_PORT}/send_location`, {
-            //     location: 'code_page',
-            //     referal: ref,
-            //     time: time
-            // })
+            await axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+                location: 'code_page',
+                referal: ref,
+                time: time
+            })
+        },
+        updateMetaTags() {
+            const env_link = this.$config.public.NUXT_APP_LINK;
+            useHead({
+                title: 'Разработка на заказ Silver - Tech',
+
+                meta: [
+                    {
+                        name: 'description', content: 'Выполение на заказ любой сложности программы, а так же для любой платформы. Квалифицированный и опытный специалист поможет воплотить в жизнь, ваши технические бизнес-идеи'
+                    },
+                    {
+                        name: 'keywords', content: 'Разработка приложений,Кроссплатформенные приложения,Современные технологии,Индивидуальный подход,Мобильные приложения,Веб-разработка,Автоматизация бизнес-процессов,Примеры проектов,Опытный разработчик'
+                    },
+                    {
+                        property: 'og:title', content: 'Разработка на заказ Silver - Tech'
+                    },
+                    {
+                        property: 'og:description', content: 'Выполение на заказ любой сложности программы, а так же для любой платформы. Квалифицированный и опытный специалист поможет воплотить в жизнь, ваши технические бизнес-идеи'
+                    },
+                    {
+                        property: 'og_url', content: `${env_link}code`
+                    }
+                ]
+            })
         }
     },
     mounted() {

@@ -32,7 +32,8 @@
 
 <script>
 import Back_Button from '@/components/UI/Back_Button.vue';
-//import axios from 'axios';
+import { useHead } from '@unhead/vue';
+import axios from 'axios';
 export default{
     name:'calc',data(){
         return {
@@ -41,19 +42,7 @@ export default{
             endTime:0,
             local_ref:null
         }
-    },head(){
-        return{
-            title:'Калькулятор Silver-tech', 
-            meta:[
-                {
-                    name:'description', content:'Простой калькулятор, который вы сможете самостоятельно написать, пройдя обучения у меня'
-                },
-                {
-                    name:'keywords', content:'Простой калькулятор, калькулятор, решение примеров, простые примеры, калькулятор онлайн'
-                }
-            ]
-        }
-    }, 
+    },
     components:{
         Back_Button
     },
@@ -76,12 +65,27 @@ export default{
         },
         async send_location(ref , time) {
             
-            // axios.post(`http://${process.env.VUE_APP_BACK_IP}:${process.env.VUE_APP_BACK_PORT}/send_location`, {
-            //     location: 'game_calc',
-            //     referal: ref, 
-            //     time:time
-            // })
+            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+                location: 'game_calc',
+                referal: ref, 
+                time:time
+            })
+        },
+        updateMetaTags() {
+            useHead({
+                title:'Калькулятор Silver-tech', 
+            meta:[
+                {
+                    name:'description', content:'Простой калькулятор, который вы сможете самостоятельно написать, пройдя обучения у меня'
+                },
+                {
+                    name:'keywords', content:'Простой калькулятор, калькулятор, решение примеров, простые примеры, калькулятор онлайн'
+                }
+            ]
+            })
         }
+    },created(){
+        this.updateMetaTags()
     },mounted(){
         this.startTime = new Date();
         if(localStorage.getItem('ref')!=null)
