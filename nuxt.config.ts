@@ -15,6 +15,7 @@ export default defineNuxtConfig({
       NUXT_APP_LINK:process.env.NUXT_APP_LINK
     }
   },
+
   // Global page headers
   app: {
     head: {
@@ -27,6 +28,8 @@ export default defineNuxtConfig({
         { hid: 'description', name: 'description', content: '' },
         { name: 'format-detection', content: 'telephone=no' },
         { property: 'og:image', content: `${process.env.NUXT_APP_LINK}social.jpg` },
+        {name:'google-site-verification', content:'uGx2TURdx1xPjcRkqzuRNCdsNXk6NFFPu1b684gjW9c'},
+        {name:'yandex-verification', content:'7dcc348e610c184e'},
         { name: 'robots', content: 'index, follow' }
       ],
       link: [
@@ -79,8 +82,11 @@ export default defineNuxtConfig({
       ]
     }]
   ],
+
   // Build Configuration
   build: {
     
   },
+
+  compatibilityDate: '2024-09-22',
 })

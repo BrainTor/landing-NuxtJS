@@ -1,129 +1,161 @@
 <template>
-    <div ref="main" class="modal-container" v-show="isVisible">
-      <!-- Фон модального окна без события @click -->
-      <div class="modal-overlay"></div>
+  <div v-if="isVisible" class="modal-container">
+    <!-- Фон модального окна с возможностью закрытия по клику -->
+    <div class="modal-overlay" @click="closeModal"></div>
+    
+    <!-- Контент модального окна -->
+    <div class="modal-content">
+      <button class="close-btn" @click="closeModal">&times;</button>
+      <h2 class="modal-title">Свяжитесь со мной</h2>
+      <h3 v-if="isSomethingBad" class="error-message">Не заполнено одно из полей</h3>
       
-      <!-- Контент модального окна -->
-      <div class="modal-content">
-        <button class="close-btn" @click="closeModal">&times;</button>
-        <h2 style="margin-bottom: 0.5rem;">Свяжитесь со мной</h2>
-        <h3 style="color:red" class="spawn" v-if="is_something_bad">Не заполнено одно из полей</h3>
-        <div style="display: flex;" class="for_mobile_connect">
-            <div style="display: flex; flex-direction: column;width: 100%; align-items: center;" >
-              
-                <p>Введите имя</p>
-           
-                <input placeholder="Иван" ref="name_input" class="input_one_row" type="text">
-            </div>
-            <div style="display: flex; flex-direction: column;margin-left: 1rem; width: 100%; align-items: center;" class="for_mobile_connect_third">
-                <p>Введите отчество</p>
-                <input type="text" class="input_one_row" ref="third_name_input" placeholder="Иванович">
-            </div>
+      <form @submit.prevent="sendQuestion" class="modal-form">
+        <div class="form-group">
+          <label for="name">Введите имя</label>
+          <input
+            id="name"
+            type="text"
+            v-model="form.name"
+            placeholder="Иван"
+            class="input-field"
+          />
         </div>
-
-        <p style="margin-top: 10px; margin-bottom: 10px;">Введите номер телефона</p>
-        <input type="text" placeholder="+7 900 000 00 00" class="input_two_row" ref="number_input">
-
-            <p style="color: gray;margin-top: 0.5rem; text-align: center;">или</p>
-     
-        <p class="ustal_nazv">Введите ссылку на социальную сеть</p>
-        <div style="display: flex;flex-direction: column;" class="bottom_part_connect">
-            <input placeholder="https://t.me/@name" ref="social_input" type="text" class="input_two_row" style="margin-top: 10px; margin-bottom: 10px;">
-
-            <textarea ref="text_input" placeholder="Напишите мне что-то" style="margin-top: 10px; margin-bottom: 10px;height: 320px;padding: 20px;   font-size: 16.2px;" class="text_area"></textarea>
+        
+        <div class="form-group">
+          <label for="thirdName">Введите отчество</label>
+          <input
+            id="thirdName"
+            type="text"
+            v-model="form.thirdName"
+            placeholder="Иванович"
+            class="input-field"
+          />
         </div>
-
-
-
-        <div class="footer_modal">
-            <button class="button_modal_controll"  @click="closeModal">Закрыть</button>
-            <button class="button_modal_controll" style="background-color: rgb(30, 181, 30); " @click="send_question">Отправить</button>
+        
+        <div class="form-group">
+          <label for="number">Введите номер телефона</label>
+          <input
+            id="number"
+            type="text"
+            v-model="form.number"
+            placeholder="+7 900 000 00 00"
+            class="input-field"
+          />
         </div>
-      </div>
+        
+        <p class="or-separator">или</p>
+        
+        <div class="form-group">
+          <label for="social">Введите ссылку на социальную сеть</label>
+          <input
+            id="social"
+            type="text"
+            v-model="form.social"
+            placeholder="https://t.me/@name"
+            class="input-field"
+          />
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Напишите мне что-то</label>
+          <textarea
+            id="message"
+            v-model="form.message"
+            placeholder="Напишите мне что-то"
+            class="textarea-field"
+          ></textarea>
+        </div>
+        
+        <div class="modal-footer">
+          <button type="button" class="btn btn-close" @click="closeModal">Закрыть</button>
+          <button type="submit" class="btn btn-submit">Отправить</button>
+        </div>
+      </form>
     </div>
-  </template>
-
+  </div>
+</template>
 <script>
 import axios from 'axios';
+
 export default {
-    name: 'Modal_Connect',
-    props: {
-        isVisible: {
-            type: Boolean,
-            required: true
-        }
-    },
-    methods: {
-        closeModal() {
-            this.$emit('close');
-        },
-         send_question(){
-            if(this.$refs.name_input.value == '' || this.$refs.third_name_input.value == '' || (this.$refs.number_input.value == ''&&this.$refs.social_input == '')||this.$refs.text_input.value == '')
-              return this.is_something_bad = true
-             
-            else
-              axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_connect`,{
-                  name:this.$refs.name_input.value,
-                  third_name:this.$refs.third_name_input.value,
-                  addres:this.$refs.number_input.value==''?this.$refs.number_input.value:this.$refs.social_input.value,
-                  his_text:this.$refs.text_input.value
-              })
-            this.closeModal()
-        }
-    },data(){
-      return {
-        is_something_bad:false
-      }
-    },mounted(){
-      this.$refs.main.parentElement.addEventListener('keydown', (event)=>{
-        try{
-          if(event.key === 'Escape' && window.getComputedStyle(this.$refs.main).display == 'flex'){
-          this.closeModal()
-          }
-        }catch{
-          console.log('hz')
-        }
-     
-      });
-      
+  name: 'Modal_Connect',
+  props: {
+    isVisible: {
+      type: Boolean,
+      required: true
     }
-}
+  },
+  data() {
+    return {
+      isSomethingBad: false,
+      form: {
+        name: '',
+        thirdName: '',
+        number: '',
+        social: '',
+        message: ''
+      }
+    };
+  },
+  methods: {
+    closeModal() {
+      this.$emit('close');
+      this.resetForm();
+    },
+    async sendQuestion() {
+      const { name, thirdName, number, social, message } = this.form;
+      
+      // Проверка обязательных полей
+      if (!name || !thirdName || (!number && !social) || !message) {
+        this.isSomethingBad = true;
+        return;
+      }
+      
+      try {
+      
+        await axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_connect`, {
+          name,
+          third_name: thirdName,
+          addres: number ? number : social,
+          his_text: message
+        });
+        this.closeModal();
+      } catch (error) {
+        console.error('Ошибка при отправке данных:', error);
+        this.isSomethingBad = true;
+      }
+    },
+    resetForm() {
+      this.form.name = '';
+      this.form.thirdName = '';
+      this.form.number = '';
+      this.form.social = '';
+      this.form.message = '';
+      this.isSomethingBad = false;
+    },
+    handleKeydown(event) {
+      if (event.key === 'Escape' && this.isVisible) {
+        this.closeModal();
+      }
+    }
+  },
+  mounted() {
+    window.addEventListener('keydown', this.handleKeydown);
+    
+    // Фокусировка на первом поле при открытии модального окна
+    if (this.isVisible) {
+      this.$nextTick(() => {
+        this.$refs.name.focus();
+      });
+    }
+  },
+  beforeUnmount() {
+    window.removeEventListener('keydown', this.handleKeydown);
+  }
+};
 </script>
-
-<style>
-@keyframes spawn_frame {
-  from{
-      opacity: 0;
-  }
-  to{
-      opacity: 1;
-  }
-}
-.spawn{
-  animation: spawn_frame;
-  opacity: 1;
-  animation-duration: 0.6s;
-  animation-iteration-count: 1;
-  margin-bottom: 1rem;
-}
-.spawn{
-  animation: spawn_frame;
-  opacity: 1;
-  animation-duration: 0.6s;
-  animation-iteration-count: 1;
-  margin-bottom: 0rem;
-}
-/* Глобальные стили */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.90); /* Тёмный фон */
-  z-index: 100;
-}
-
+<style >
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 .modal-container {
   position: fixed;
   top: 0;
@@ -136,17 +168,28 @@ export default {
   z-index: 1000;
 }
 
-/* Локальные стили для контента модального окна */
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
 .modal-content {
   position: relative;
-  background-color: white;
-  padding: 25px;
+  background-color: #fff;
+  padding: 20px;
   border-radius: 10px;
-  z-index: 200;
-  box-shadow: 0 0 15px rgba(102, 101, 101, 0.8);
-  min-width: 350px;
-  min-height: 200px;
+  width: 100%;
+  max-width: 500px; /* Ограничение максимальной ширины для больших экранов */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto; /* Добавление прокрутки при необходимости */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 
 .close-btn {
   position: absolute;
@@ -157,40 +200,92 @@ export default {
   font-size: 24px;
   cursor: pointer;
 }
-.input_one_row{
-  width: 220px;
-  outline: none;
-  border: 1.5px solid rgb(178, 175, 175);
-  padding:  4px 10px;
-  border-radius: 4px;
-  height: 25px;
-  font-size: 16.2px;
 
+
+
+.modal-title {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
 }
-.input_two_row{
-  width: 96%;
-  outline: none;
-  border: 1.5px solid rgb(178, 175, 175);
-  padding:  4px 10px;
+
+.error-message {
+  color: red;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 90%;
+  align-items: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: cente;
+}
+
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 18.3px;
+}
+
+.input-field,
+.textarea-field {
+  padding: 8px 10px;
+  border: 1.5px solid #b2afb3;
   border-radius: 4px;
-  height: 25px;
-  font-size: 16.2px;
+  font-size: 1rem;
+  outline: none;
+  width: 95%;
+  font-size: 18.3px;
 }
-.footer_modal{
+
+
+.textarea-field {
+  resize: vertical;
+  min-height: 100px;
+  height: 250px;
+}
+
+.or-separator {
+  text-align: center;
+  color: gray;
+  margin: 10px 0;
+}
+
+.modal-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 0.7rem;
+  gap: 10px;
+  margin-top: 10px;
+  width: 100%;
 }
-.button_modal_controll{
-  color: whitesmoke;
-  border: 0px;
-  width: 120px;
-  font-size: 16.2px;
-  padding: 3px;
-  height: 32px;
-  border-radius: 8px;
-  cursor: pointer;
-  background-color: rgb(207, 31, 31);
 
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
 }
+
+.btn-close {
+  background-color: rgb(221, 62, 62);
+  color: white;
+}
+
+.btn-submit {
+  background-color: #1eb51e;
+  color: #fff;
+}
+
+
 </style>

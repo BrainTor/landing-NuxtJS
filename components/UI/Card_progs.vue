@@ -1,7 +1,7 @@
 <template>
     <div>
         <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 20px; padding-right: 20px; ">
-            <button @click="next_or_before('left')" class="contoll_card"><fa icon="circle-left" /></button>
+            <button @click="next_or_before('left')" class="contoll_card"><fa icon="circle-left" aria-label = "Предыдущий"/></button>
             <div class="central_continer">
                 <transition :name="transitionName" mode="out-in">
                     <img :src="img_default" class="img_card" :key="img_default">
@@ -10,16 +10,16 @@
                     <h3 :key="company_default">{{ company_default }}</h3>
                 </transition>
                 <transition :name="transitionName" mode="out-in">
-                    <p v-html="text_default" :key="text_default"></p>
+                    <p v-html="text_default" :key="text_default" class="text-block mobile_text"></p>
                 </transition>
             </div>
-            <button @click="next_or_before('right')" class="contoll_card">
+            <button @click="next_or_before('right')" class="contoll_card" aria-label = "Следующий">
                 <fa icon="circle-right" />
             </button>
       
         </div>
         <center>
-            <button class="connect_with_me" @click ="toggle_con">
+            <button class="connect_with_me" @click ="toggle_con" aria-label = "Свяжитесь со мной">
                 <fa icon="link" /> Свяжитесь со мной
             </button>
         </center>
@@ -189,9 +189,8 @@ h3, p {
     cursor: pointer;
 
 }
-.connect_with_me:hover {
-    background-color: rgb(30, 181, 30);
-    color: white;
 
+.text-block{
+    font-size: 18.3px;
 }
 </style>

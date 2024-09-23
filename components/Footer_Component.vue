@@ -13,19 +13,19 @@
             <div class="social_row">
                 <button class="social_button">
                     <a href="https://vk.com/maxim295">
-                        <img class="social_img" src="@/assets/img/icons/vk.png">
+                        <img class="social_img" aria-label ="вконтакте ссылка" src="@/assets/img/icons/vk.png">
                     </a>
 
                 </button>
                 <button class="social_button">
                     <a href="https://t.me/@BrainTorOff">
-                        <img class="social_img" src="@/assets/img/icons/telegram.png">
+                        <img class="social_img" aria-label ="телеграмм ссылка" src="@/assets/img/icons/telegram.png">
                     </a>
 
                 </button>
                 <button class="social_button" title="Запрещенная на территории РФ соц. сеть  :)">
                     <a href="https://www.instagram.com/prophet_off?igsh=MTBnZW9zdjZkbmhyNw==">
-                        <img class="social_img" src="@/assets/img/icons/instagram.png">
+                        <img class="social_img" aria-label ="инстаграмм ссылка" src="@/assets/img/icons/instagram.png">
                     </a>
                 </button>
             </div>
@@ -119,22 +119,6 @@ export default {
     }
 }
 
-@media (hover: hover) {
-    .social_button:hover {
-        animation-name: shake;
-        animation-duration: 1s;
-        animation-iteration-count: 1;
-        animation-direction: alternate;
-        animation-timing-function: ease-in-out;
-    }
-
-    .connect_button:hover {
-        background-color: #d43a63;
-        color: white;
-
-    }
-
-}
 
 .email_phone {
     font-size: 24px;

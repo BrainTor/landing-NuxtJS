@@ -1,7 +1,7 @@
 <template>
     <div class="main_code">
         <Modal_ads @close_ads="hadle_ads" :isVisible_ads="is_Visible_ads">
-            <div style="font-size: 16.5px; margin-top: 10px;margin-bottom: 10px;">Напишите ваш, номер телефона и
+            <div style="font-size: 18.3px; margin-top: 10px;margin-bottom: 10px;" class="mobile_text">Напишите ваш, номер телефона и
                 получите
                 скидку<br>на написание программы в размере 10%
             </div>
@@ -18,14 +18,17 @@
 
             <h1 style="text-align: center; margin-top: 1rem; margin-bottom: 1rem;" class="testr">Я создаю приложения,
                 которые работают на разных платформах с использованием современных технологий</h1>
-            <p style="text-align: center; font-size: 18.3px;">
-                Это идеальный способ воплотить ваши идеи в реальность.
-            </p>
+                <div style="width: 95%;">
+                    <p style="text-align: center; font-size: 18.3px;padding-left: 14px;">
+                        Это идеальный способ воплотить ваши идеи в реальность.
+                    </p>
+                </div>
+
             <div
                 style="display: flex; justify-content: space-evenly; flex-wrap: wrap; margin-top: 1rem; margin-bottom: 1rem; ">
                 <div style="width: 250px; flex-direction: column; align-items: center;
                  display: flex;">
-                    <img src="@/assets/img/progs/agile.png" class="img_progs" width="115px" alt="">
+                    <img src="@/assets/img/progs/agile.png" class="img_progs" width="115px" alt="Фото - гибкости">
                     <h2>Гибкость</h2>
                     <p style="text-align: center; font-size: 18.3px;">Я работаю с заказами разной степени сложности и
                         срочности</p>
@@ -33,7 +36,7 @@
 
                 <div style="width: 250px; flex-direction: column; align-items: center;
                  display: flex;">
-                    <img class="img_progs" src="@/assets/img/progs/platform.png" width="115px" alt="">
+                    <img class="img_progs" src="@/assets/img/progs/platform.png" width="115px" alt="Фото - платформы">
                     <h2>Платформы</h2>
                     <p style="text-align: center; font-size: 18.3px;">
                         Создаю мобильные приложения, веб-сайты и приложения для компьютера – всё, что нужно для вашего
@@ -43,7 +46,7 @@
 
                 <div style="width: 250px; flex-direction: column; align-items: center;
                  display: flex;">
-                    <img class="img_progs" src="@/assets/img/progs/effective.png" width="115px" alt="">
+                    <img class="img_progs" src="@/assets/img/progs/effective.png" width="115px" alt="Фото эффективность">
                     <h2>Эффективность</h2>
                     <p style="text-align: center; font-size: 18.3px;">Моя цель – быстрое и качественное выполнение
                         задач, чтобы ваш проект был готов в кратчайшие сроки.</p>
@@ -55,7 +58,7 @@
         <section>
 
             <div style="width: 100%; height: fit-content; position: relative;">
-                <img :src="img_src" style="width: 100% !important; filter: blur(5px)" class="mobile_progs">
+                <img :src="img_src" style="width: 100% !important; filter: blur(5px)" class="mobile_progs" alt="Фото-секция заслуг">
                 <div ref="for_cont" class="for_cont_progs"
                     style="position: absolute; z-index: 2; width: 100% !important; top:0%; left:0%;height: 100%; display: flex; justify-content: center; align-items: center;">
 
@@ -91,7 +94,7 @@
                         <div class="number_inside_circle">1</div>
                     </div>
                     <h2 style="text-align: center;">Индивидуальный подход</h2>
-                    <p style="font-size: 18.3px;  text-align: center;">Все ваши требования и предпочтения учитываются во
+                    <p style="font-size: 18.3px;  text-align: center;" class="mobile_text">Все ваши требования и предпочтения учитываются во
                         время разработки уникальных решений под ваш проект.</p>
                 </div>
                 <div style="width: 370px;">
@@ -99,7 +102,7 @@
                         <div class="number_inside_circle">2</div>
                     </div>
                     <h2 style="text-align: center;">Первый этап бесплатно</h2>
-                    <p style="font-size: 18.3px;  text-align: center;">Получите консультацию и оценку проекта на первом
+                    <p style="font-size: 18.3px;  text-align: center;" class="mobile_text">Получите консультацию и оценку проекта на первом
                         этапе совершенно бесплатно. Мы обсудим все детали и сделаем предварительный план.</p>
                 </div>
 
@@ -108,7 +111,7 @@
                         <div class="number_inside_circle">3</div>
                     </div>
                     <h2 style="text-align: center;">Демократичные и прозрачные цены</h2>
-                    <p style="font-size: 18.3px; text-align: center;">Вы всегда знаете, за что платите. У нас
+                    <p style="font-size: 18.3px; text-align: center; " class="mobile_text">Вы всегда знаете, за что платите. У нас
                         фиксированные цены, а также гибкая система правок и доработок без лишних затрат.</p>
                 </div>
             </div>
@@ -265,6 +268,8 @@ export default {
     border-width: 2px;
     border-color: #d43a63 !important;
     background: #ffffff;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .number_inside_circle {

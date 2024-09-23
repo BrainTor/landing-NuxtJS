@@ -1,6 +1,6 @@
 <template> 
     <div style="width: fit-content;">
-        <button class="back">
+        <button class="back" aria-label = "Назад">
             <fa icon="arrow-left" />
         </button>
     </div>

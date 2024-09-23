@@ -3,23 +3,23 @@
     <div class="modal-container" ref="main_el" v-if="isVisible_ads">
         <div class="modal-overlay" @click="closeModal"></div>
         <div class="modal-content">
-            <button class="close-btn" @click="closeModal">&times;</button>
+            <button class="close-btn" @click="closeModal" aria-label = "Закрыть">&times;</button>
             <div style="display: flex; justify-content: center; width: 100%;">
                 <img src="@/assets/img/rocket.png" style="width: 100px;">
             </div>>
 
            
 
-            <h2 style="text-align: center; margin-top: 1rem;">Подождите, у меня специальное предложение.</h2>
+            <h2 style="text-align: center; margin-top: 1rem; padding-left: 6px; padding-right: 5px;">Подождите, у меня специальное предложение.</h2>
             <div style="display: flex; justify-content: center; width: 100%;">
                 <slot></slot>
             </div>
             
-            <div style="display: flex; flex-direction: column; align-items:center;">
+            <div style="display: flex; flex-direction: column; align-items:center; width: 90%;">
                 <h3 style="text-align: center; color:red" class="spawn" v-if="is_number_bad">Вы ввели неверный номер телефона</h3>
                 <input type="text" ref="number_input" class="input_two_row" placeholder="+7 909 000 00 00" style="margin-top: 10px;">
                 <p style="margin-bottom: 0;margin-top: 15px;">Скидка действует {{ formatTime(timeRemaining) }}</p>
-                <button class="accept" @click="send_ads">Отправить</button>
+                <button class="accept" @click="send_ads" aria-label = "Отправить">Отправить</button>
                 <p style="text-decoration: underline; cursor: pointer;" @click="closeModal">Нет, спасибо, я хочу полную
                     стоимость</p>
             </div>
@@ -104,8 +104,8 @@ export default {
     background-color: #d43a63;
     border: 0px;
     color: white;
-    height: 40px;
-    font-size: 16.5px;
+    height: 50px;
+    font-size: 18.3px;
     cursor: pointer;
     transition: 0.6s;
     border-radius: 7px;
@@ -117,9 +117,7 @@ export default {
     animation-iteration-count: 1;
     margin-bottom: 1rem;
 }
-.accept:hover {
-    transform: scale(1.02);
-}
+
 @keyframes spawn_frame {
     from{
         opacity: 0;

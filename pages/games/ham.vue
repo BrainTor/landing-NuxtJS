@@ -30,7 +30,7 @@
         </div>
         <button style="width: fit-content; background-color: transparent; border: 0px;" @click="click_button"
             ref="main_but">
-            <img :src="img_src" class="ham_img_mobile" width="600px"
+            <img :src="img_src" class="ham_img_mobile" width="600px" alt ="Картинка монеты"
                 style="cursor: pointer;   -webkit-tap-highlight-color: transparent;user-select: none;outline: none;">
         </button>
 
@@ -61,6 +61,13 @@
 <script>
 import Back_Button from '@/components/UI/Back_Button.vue';
 import axios from 'axios';
+import coin1 from '@/assets/img/games/coin1.png'
+import coin2 from '@/assets/img/games/coin2.png'
+import coin3 from '@/assets/img/games/coin3.png'
+import coin4 from '@/assets/img/games/coin4.png'
+import coin5 from '@/assets/img/games/coin5.png'
+import coin6 from '@/assets/img/games/coin6.png'
+import coin7 from '@/assets/img/games/coin7.png'
 import { useHead } from '@unhead/vue';
 export default {
     name: 'ham',
@@ -72,14 +79,14 @@ export default {
             energy: 100,
             money_per_click: 1,
             one_time: true,
-            img_src: require('@/assets/img/games/coin1.png'),
+            img_src: coin1,
             sources: [
-                require('@/assets/img/games/coin2.png'),
-                require('@/assets/img/games/coin3.png'),
-                require('@/assets/img/games/coin4.png'),
-                require('@/assets/img/games/coin5.png'),
-                require('@/assets/img/games/coin6.png'),
-                require('@/assets/img/games/coin7.png')
+                coin2,
+                coin3,
+                coin4,
+                coin5,
+                coin6,
+                coin7
             ],
             startTime: 0,
             endTime: 0,

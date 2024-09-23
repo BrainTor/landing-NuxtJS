@@ -3,7 +3,7 @@
         <Nav_Component @scroll_to="handle_scroll" place="study"></Nav_Component>
         <Modal_Connect :isVisible="modal_connect_visible" @close="handle_connect()"></Modal_Connect>
         <Modal_ads @close_ads="hadle_ads" :isVisible_ads="is_Visible_ads">
-            <p style="font-size: 16.5px; margin-top: 10px;margin-bottom: 10px;">Напишите ваш, номер телефона и получите
+            <p style="font-size: 18.3px; margin-top: 10px;margin-bottom: 10px;" class="mobile_text">Напишите ваш, номер телефона и получите
                 скидку<br>на первое занятие в размере 15% <br>
                 И пробное занятие <strong>бесплатно</strong>
             </p>
@@ -16,7 +16,7 @@
 
             <div class="profile-card">
 
-                <img src="@/assets/img/study/enter.jpg" alt="Profile Photo" class="profile-photo">
+                <img src="@/assets/img/study/enter.webp" alt="Фото - введение " class="profile-photo">
                 <div class="profile-info">
                     <h2>👋 Введение</h2>
                     <p> Обучение программированию — это 🎓 инвестиция в будущее, которая открывает двери к бесконечным
@@ -47,12 +47,12 @@
                         </ul>
                     </div>
                 </div>
-                <img src="@/assets/img/study/happy_woman.jpg" alt="Profile Photo" class="profile-photo">
+                <img src="@/assets/img/study/happy_woman.webp" alt="Фото - счастливая девушка" class="profile-photo">
             </div>
 
 
             <div class="profile-card">
-                <img src="@/assets/img/study/unique.jpg" alt="Profile Photo" class="profile-photo">
+                <img src="@/assets/img/study/unique.webp" alt="Фото уникальный подход" class="profile-photo">
                 <div class="profile-info">
                     <h2>🌟 Уникальный подход</h2>
                     <div>
@@ -103,7 +103,7 @@
                 <div class="buttons">
 
                     <div class="card">
-                        <img src="@/assets/img/study/cross.jpg" style="width: 200px;" alt="">
+                        <img src="@/assets/img/study/cross.jpg" style="width: 200px;" alt="Фото крестики - нолики ">
                         <h3>Крестики — нолики</h3>
                         <p>
                             Классическая логическая игра, знакомая каждому с детства. Представьте, что вы можете не
@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="card">
-                        <img src="@/assets/img/study/calc.jpg" style="width: 200px;" alt="">
+                        <img src="@/assets/img/study/calc.jpg" style="width: 200px;" alt="Калькулятор, фото ">
                         <h3>Калькулятор</h3>
                         <p>
                             Незаменимое приложение, которым мы пользуемся ежедневно. Что если вы сможете разработать
@@ -132,7 +132,7 @@
 
 
                     <div class="card">
-                        <img src="@/assets/img/study/chest.jpg" style="height: 200px;" alt="">
+                        <img src="@/assets/img/study/chest.jpg" style="height: 200px;" alt="Фото поиск сокровищ">
                         <h3>Поиск сокровищ</h3>
                         <p>
                             Погрузитесь в мир приключений и создайте свою собственную игру "Поиск сокровищ". Эта
@@ -150,7 +150,7 @@
                     </div>
 
                     <div class="card">
-                        <img src="@/assets/img/study/ham.jpg" style="height: 200px;" alt="">
+                        <img src="@/assets/img/study/ham.jpg" style="height: 200px;" alt="Фото, аналог хамстера">
                         <h3>Аналог Hamster</h3>
                         <p>
                             Создайте аналог известной игры, завоевавшей сердца миллионов игроков по всему миру. Этот
@@ -275,7 +275,7 @@ export default {
 }
 
 .profile-photo {
-    width: 550px;
+    width: 600px;
     border-radius: 8px;
     object-fit: cover;
     margin: 20px;
@@ -299,15 +299,16 @@ export default {
 
 .profile-info p {
     margin-top: 10px;
-    font-size: 17px;
+    font-size: 18.3px;
     color: #666;
     line-height: 1.5;
 }
-
-.profile-photo:hover {
-    transform: scale(1.09);
-
+.profile-info div, .profile-info div ul, .card p{
+    font-size: 18.3px;
+    text-align: justify;
 }
+
+
 
 li::before {
     content: "✔";
@@ -348,18 +349,14 @@ ul {
     transition: 0.6s;
 }
 
-.expample:hover {
-    background-color: var(--hover-color);
-    transform: scale(1.08);
-}
 
 .card {
     margin-left: 10px;
     margin-left: 10px;
-    padding: 10px;
+    padding: 20px;
     background-color: rgb(218, 218, 218);
     border-radius: 8px;
-    width: 350px;
+    width: 320px;
     box-shadow: 1px 2px 11px 3px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 1px 2px 11px 3px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 1px 2px 11px 3px rgba(0, 0, 0, 0.75);
@@ -367,6 +364,7 @@ ul {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    height: 680px;
+    height: 715px;
+    text-align: justify;
 }
 </style>

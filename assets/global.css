@@ -68,10 +68,17 @@ body {
   outline: none;
 }
 /* Стили для мобильных устройств */
+.input_two_row{
+  height: 30px;
+  font-size: 18.3px;
+  outline: none;
+  width: 100%;
+  padding: 8px 10px; 
+}
 @media (max-width: 768px) {
   .text_area{
     width: 86% !important;
-    height: 320px !important;
+    height: 100% !important;
     
   }
   .close-btn{
@@ -85,16 +92,18 @@ body {
     text-wrap: balance !important;
     padding: 0px 20px;  
   }
-  .modal-content{
-    width: 100%;
-    height: 100%;
-    display: flex;
+  .modal-content {
+    padding: 0 !important; /* Уменьшаем отступы на мобильных устройствах */
+    width: 100% !important; /* Модальное окно занимает весь экран */
+    height: 101.5% !important; /* Высота на весь экран */
+    border-radius: 0 !important; /* Убираем скругления на мобильных */
+    max-width: none !important; /* Не ограничиваем максимальную ширину */
+    box-shadow: none !important; /* Убираем тень */
     border-radius: 0px !important;
-    padding: 0px !important;
-    justify-content: center;
+    display: flex;
     flex-direction: column;
+    justify-content: center !important;
     align-items: center;
-
   }
   .header_section{
     width: 101% !important ;
@@ -159,6 +168,14 @@ body {
   }
   .text_left_block{
     margin: 0px !important;
+    font-size: 16px !important;
+  }
+ 
+  .profile-info p, .text-about, .text_why_me, .profile-info div, .card p, .profile-info div ul, .mobile_text {
+    font-size: 16px !important;
+  } 
+  .title_study_example div h2{
+    text-align: center;
   }
   .footer_container{
     width: 100% !important;
@@ -191,14 +208,20 @@ body {
   }
   .card{
     margin: 20px 0px !important;
-    width: 320px !important;
+    width: 300px !important;
     margin-left:0px !important;
   }
+  .main_section div p{
+    font-size: 16px !important;
+  }
  .title_study_example{
-  padding: 0px 20px;
+  padding: 0px 10px;
  }
  .input_two_row{
-  width: 88% !important;
+  width: 86% !important;
+}
+.form-group label{
+  font-size: 16px !important;
 }
 .for_mobile_connect{
   flex-direction: column;
@@ -212,6 +235,7 @@ body {
 .bottom_part_connect{
   width: 97%;
   align-items: center !important;
+  height: 100%;
 }
 .for_mobile_connect_third{
   margin-left: 0px !important;
@@ -223,6 +247,7 @@ body {
   width: 90% !important;
   margin-left: -18px;
   margin-top: 5px !important;
+  margin-bottom: 10px;
 }
 .central_continer p{
   margin-right: -10px;
@@ -261,6 +286,9 @@ body {
   justify-content: space-between !important;
 
 }
+.or-separator{
+  margin: 0px !important;
+}
 .row_ham h3{ 
   margin-left: 15px;
   margin-right: 15px;
@@ -269,4 +297,75 @@ body {
   margin-left: 15px;
 
 }
+.input-field{
+  height: 25px;
+  font-size: 16px !important;
+}
+.textarea-field{
+  height: 150px !important;
+  font-size: 16px !important;
+}
+}
+
+@media (hover: hover) {
+  .profile-photo:hover {
+    transform: scale(1.09);
+
+  }
+  .connect_with_me:hover {
+    background-color: rgb(30, 181, 30);
+    color: white;
+  
+  }
+  .profile-photo:hover {
+    transform: scale(1.09);
+
+}
+.expample:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.08);
+}
+.button_info:hover {
+  background-color: var(--hover-color); 
+  color: black;
+}
+.button_contact:hover{
+    background-color: #c01a46 !important;
+    color: white;
+}
+.accept:hover {
+  transform: scale(1.02);
+}
+.social_button:hover {
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-iteration-count: 1;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+}
+
+.connect_button:hover {
+  background-color: #d43a63;
+  color: white;
+
+}
+.connect_with_me:hover {
+  background-color: rgb(30, 181, 30);
+  color: white;
+
+}
+.button_learn:hover{
+  background-color: rgb(30, 181, 30); 
+  color: white;  
+
+}
+}
+@media (hover: none) {
+  .button_info:active {
+  background-color: var(--hover-color); ; 
+  }
+  .button_contact:active{
+      background-color: #c01a46 !important;
+      color: white;
+  }
 }

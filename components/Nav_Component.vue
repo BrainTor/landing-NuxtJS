@@ -16,10 +16,10 @@
         <div class="mobile_nav">
             <h3 style="color: white; font-size: 22px;" @click.prevent="toggleDropdown"><fa icon ="compass"/></h3>
             <ul v-if="isDropdownOpen" class="dropdown-menu">
-                <li @click="handle_change('_about')"><a href="#"><fa icon="circle-info" style="margin-right: 1px;"/> Обо мне</a></li>
-                <li @click="handle_change('_study')"><a href="#"><fa icon="book" /> Обучение</a></li>
-                <li @click="handle_change('_code')"><a href="#"><fa icon="code" /> Разработка</a></li>
-                <li @click="handle_change('_contact')"><a href="#"><fa icon="address-book" /> Контакты</a></li>
+                <li @click="handle_change('_about')"><a href="#" class="nav_link"><fa icon="circle-info" style="margin-right: 1px;"/> Обо мне</a></li>
+                <li @click="handle_change('_study')"><a href="#" class="nav_link"><fa icon="book" /> Обучение</a></li>
+                <li @click="handle_change('_code')"><a href="#" class="nav_link"><fa icon="code" /> Разработка</a></li>
+                <li @click="handle_change('_contact')"><a href="#" class="nav_link"><fa icon="address-book" /> Контакты</a></li>
               </ul>
         </div>
     </div>
@@ -31,15 +31,15 @@
         </div>
 
         <div class="info">
-            <nuxt-link to="/">
+            <nuxt-link to="/" class="nav_link">
                 <button class="button_info"><fa icon="house"  style="margin-right: 3px; margin-top: -20px;" />На главную</button>
             </nuxt-link>
             
-            <nuxt-link to="/study">
+            <nuxt-link to="/study" class="nav_link">
                 <button class="button_info"><fa icon="book" /> Обучение</button>
             </nuxt-link>
 
-            <nuxt-link to = "/code">
+            <nuxt-link to = "/code" class="nav_link">
                 <button class="button_info"><fa icon="code" /> Разработка</button>
             </nuxt-link>
 
@@ -50,18 +50,18 @@
         <div class="mobile_nav" >
             <h3 style="color: white; font-size: 22px; "  @click.prevent="toggleDropdown"><fa icon="compass" /></h3>
             <ul v-if="isDropdownOpen" class="dropdown-menu">
-                <nuxt-link to="/">
-                    <li><a href="#"><fa :icon="['fas', 'house']" /> На главную</a></li>
+                <nuxt-link to="/" class="nav_link">
+                    <li><a href="#" class="nav_link"><fa :icon="['fas', 'house']" /> На главную</a></li>
                 </nuxt-link>
                 
-                <nuxt-link to="/study">
-                    <li ><a href="#"><fa icon="book" /> Обучение</a></li>
+                <nuxt-link to="/study" class="nav_link">
+                    <li ><a href="#" class="nav_link"><fa icon="book" /> Обучение</a></li>
                 </nuxt-link>
                 
-                <nuxt-link to="/code">
-                    <li ><a href="#"><fa icon="code" /> Разработка</a></li>
+                <nuxt-link to="/code" class="nav_link">
+                    <li ><a href="#" class="nav_link"><fa icon="code" /> Разработка</a></li>
                 </nuxt-link>
-                    <li ><a href="#"><fa icon="address-book" /> Контакты</a></li>
+                    <li ><a href="#" class="nav_link"><fa icon="address-book" /> Контакты</a></li>
 
               </ul>
         </div>
@@ -139,26 +139,8 @@ export default {
         margin-right: 20px;
     }
 
-    @media (hover: hover) {
-        .button_info:hover {
-          background-color: var(--hover-color); 
-          color: black;
-        }
-        .button_contact:hover{
-            background-color: #c01a46 !important;
-            color: white;
-        }
-      }
       
-      @media (hover: none) {
-        .button_info:active {
-        background-color: var(--hover-color); ; 
-        }
-        .button_contact:active{
-            background-color: #c01a46 !important;
-            color: white;
-        }
-      }
+
       .mobile_nav{
         display: none;
       }
@@ -184,9 +166,12 @@ export default {
   
   .dropdown-menu li {
     text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    margin-top: 22px;
+    margin-bottom: 22px;
     color: white;
+  }
+  .nav_link{
+    text-decoration: none;
   }
 
 </style>

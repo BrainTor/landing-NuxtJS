@@ -49,6 +49,7 @@
 
 import axios from 'axios';
 import { useHead } from '@unhead/vue';
+import diamond_pic from '@/assets/img/diamond.png'
 export default {
     name: 'find_tres',
     data() {
@@ -91,7 +92,7 @@ export default {
             if (!this.is_clicked) {
                 this.diamond = document.createElement('img')
                 this.diamond.setAttribute('id', 'diamond')
-                this.diamond.setAttribute('src', require('@/assets/img/diamond.png'))
+                this.diamond.setAttribute('src', diamond_pic)
                 this.diamond.style = `
                 width:30px;
                 position:absolute;

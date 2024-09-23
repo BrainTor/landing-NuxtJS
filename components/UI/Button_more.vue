@@ -1,5 +1,5 @@
 <template>
-    <button class="button_learn">Узнать подробнее</button>
+    <button class="button_learn" aria-label = "Узнайте подробнее">Узнать подробнее</button>
 </template>
 
 <script>
@@ -21,9 +21,5 @@
     cursor: pointer;
 
 }
-.button_learn:hover{
-    background-color: rgb(30, 181, 30); 
-    color: white;  
 
-}
 </style>

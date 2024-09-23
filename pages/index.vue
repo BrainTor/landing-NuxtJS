@@ -7,35 +7,35 @@
 
 
     <section class="header_section">
-      <img ref="img_header" src="@/assets/img/main-section.jpg" class="img_undercover" alt="">
+      <img ref="img_header" src="@/assets/img/main-section.webp" class="img_undercover" alt="главная картинка">
       <div class="cover">
         <h1 style="text-align: center;font-size: 24pt; font-weight: 600; margin-top: -100px;" class="header_title">
           Разработка программного обеспечения любой
-          сложности.<br>Обучение любым направлениям любым направлениям в программировании!</h1>
+          сложности.<br>Обучение любым направлениям в программировании!</h1>
         <h1 style="text-align: center;margin-top: 1.5rem;font-weight: 400;" class="header_under_title"><br>
           <strong>Разработка</strong>
           программного
           обеспечения для любой платформы: быстро, качественно, недорого!
-          <br><strong>Обучение</strong> по всем направлениям программирования. Для вас и ваших детей
+          <br><strong>Обучение</strong> по всем направлениям программирования. Для вас и ваших детей.
         </h1>
       </div>
     </section>
 
     <Modal_ads @close_ads="hadle_ads" :isVisible_ads="is_Visible_ads">
-      <p style="font-size: 16.5px; margin-top: 10px;margin-bottom: 10px;">Напишите ваш, номер телефона и получите
+      <p style="font-size: 16.5px; margin-top: 10px;margin-bottom: 10px; text-align: center; font-size: 18.3px;" class="mobile_text">Напишите ваш, номер телефона и получите
         скидку<br>на все услуги в размере <strong>15 процентов</strong></p>
     </Modal_ads>
 
 
-    <section ref="section_about" class="about-section">
+    <section ref="section_about" class="about-section" style="padding-bottom: 13px;">
 
       <h1 style="text-align: center;margin-top: 1.5rem;">Обо мне</h1>
 
       <div class="profile-card">
-        <img src="@/assets/img/main_photo.png" alt="Profile Photo" class="profile-photo">
+        <img src="@/assets/img/main_photo.webp" alt="Profile Photo" class="profile-photo">
         <div class="profile-info">
           <h2>Яценко Максим</h2>
-          <p> 👨‍💻 <strong>Пpoгрaммист с большим опытом работы</strong>, специализирующийся на разработке
+          <p class="text-about"> 👨‍💻 <strong>Пpoгрaммист с большим опытом работы</strong>, специализирующийся на разработке
             программного
             обеспечения высшего уровня сложности. Имею диплом магистра и обладаю глубокими знаниями в области
             информационных технологий. <br> <strong>Призер множества всероссийских конкурсов</strong>, что
@@ -63,7 +63,7 @@
 
       <div style="display: flex; justify-content: center;">
 
-        <button class="connect_with_me" @click="togle_Modal">
+        <button class="connect_with_me" aria-label = "Свяжитесь со мной" @click="togle_Modal">
           <fa icon="link" /> Свяжитесь со мной
         </button>
       </div>
@@ -74,12 +74,12 @@
     <section ref="section_why_pick_me" class="sectionSecond">
       <div style="display: flex; align-items: center; flex-direction: column; width: 100%;">
         <h1 style="padding-top: 20px; text-align: center;">Почему стоит выбрать именно меня?</h1>
-        <h3 style="font-weight: 400;margin-top: 20px;">Имею большой опыт создания приложений для разных
+        <h3 style="font-weight: 400;margin-top: 20px; text-align: center;">Имею большой опыт создания приложений для разных
           платформ,<br> а также исходя из
           своего опыта, могу объяснить "простым языком" сложные вещи</h3>
         <div class="row_container">
           <div class="container_col">
-            <img class="img_icon" src="@/assets/img/icons/10age.png">
+            <img class="img_icon" src="@/assets/img/icons/10age.png" alt = "картинка - опыта">
             <h4>10 лет работы</h4>
             <p class="text_why_me">Мой опыт говорит за меня. За 10 лет практической разработки и 5 лет
               преподавания, я
@@ -88,7 +88,7 @@
           </div>
 
           <div class="container_col">
-            <img class="img_icon" style="margin-top: 20px;" src="@/assets/img/icons/individ.png">
+            <img class="img_icon" style="margin-top: 20px;" src="@/assets/img/icons/individ.png" alt="Картинка-индивидуальности">
             <h4>Индивидуальный подход</h4>
             <p class="text_why_me">За время моей работы, я научился находить индивидуальный подход к клиенту.
               Если речь
@@ -100,7 +100,7 @@
           </div>
 
           <div class="container_col">
-            <img class="img_icon" src="@/assets/img/icons/upgrade.png">
+            <img class="img_icon" src="@/assets/img/icons/upgrade.png" alt="картинка роста">
             <h4>Непрерывный рост</h4>
             <p class="text_why_me">
               Я стараюсь не сидеть на месте и постоянно совершенствую своё мастерство, как в плане
@@ -128,7 +128,7 @@
         <div class="objective">
 
           <div class="left_block">
-            <img src="@/assets/img/icons/uniqe.png" class="img_blocks">
+            <img src="@/assets/img/icons/uniqe.png" class="img_blocks" alt="Фото уникальная возможность">
             <p class="text_left_block">🚀 Уникальная возможность:
               Обучаю программированию как детей, так и взрослых, предлагая подход, адаптированный под каждый
               возраст и уровень знаний. Мои ученики не просто изучают теорию, они погружаются в реальные
@@ -138,7 +138,7 @@
           </div>
 
           <div class="left_block">
-            <img src="@/assets/img/icons/wait.png" class="img_blocks">
+            <img src="@/assets/img/icons/wait.png" class="img_blocks" alt = "Фото что вас ждет">
             <p class="text_left_block">💻 Что вас ждет:
               От создания простых приложений до разработки сложных корпоративных систем – вы пройдёте весь
               путь обучения, начиная с базовых концепций и заканчивая сложными задачами. В процессе обучения
@@ -149,7 +149,7 @@
           </div>
 
           <div class="left_block">
-            <img src="@/assets/img/icons/programs.png" class="img_blocks">
+            <img src="@/assets/img/icons/programs.png" class="img_blocks" alt = "Картинка - преподавальская деятельность  ">
             <p class="text_left_block">🔧 За время своей преподавательской деятельности, я разработал уникальные
               программы обучения, которые подойдут для каждого, независимо от уровня подготовки. Мой подход к
               обучению основан на большом количестве практических заданий и проектах, которые помогут вам
@@ -159,7 +159,7 @@
           </div>
 
           <div class="left_block">
-            <img src="@/assets/img/icons/it.png" class="img_blocks">
+            <img src="@/assets/img/icons/it.png" class="img_blocks" alt="Путь в it">
             <p class="text_left_block">
               Присоединяйтесь к обучению прямо сейчас и начните путь к успешной карьере в IT! 💼
               Я предлагаю не просто обучение — это ваш первый шаг к высокооплачиваемой и востребованной
@@ -188,10 +188,10 @@
 
 
       <div class="profile-card" style="background-color: transparent;">
-        <img src="@/assets/img/programmer.jpg" alt="Profile Photo" class="profile-photo" style="width: 400px;">
+        <img src="@/assets/img/programmer.webp" alt="Profile Photo" class="profile-photo">
         <div class="profile-info">
 
-          <p>
+          <p class="text-about">
             👨‍💻 Я – программист с богатым опытом и глубокими знаниями в области информационных технологий. Мой
             диплом магистра и призовые места на всероссийских конкурсах подтверждают мою квалификацию и
             профессионализм 🏆. <br>
@@ -443,7 +443,7 @@ export default {
 }
 
 .profile-photo {
-  width: 400px;
+  width: 450px;
   border-radius: 8px;
   object-fit: cover;
   margin: 20px;
@@ -520,12 +520,7 @@ export default {
 
 }
 
-@media (hover: hover) {
-  .profile-photo:hover {
-    transform: scale(1.09);
 
-  }
-}
 
 .row_container {
   display: flex;
@@ -622,9 +617,8 @@ h4 {
 
 }
 
-.connect_with_me:hover {
-  background-color: rgb(30, 181, 30);
-  color: white;
 
+.text-about{
+  text-align: justify;
 }
 </style>
