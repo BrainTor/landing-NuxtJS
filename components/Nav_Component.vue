@@ -6,20 +6,20 @@
         </div>
 
         <div class="info">
-            <button class="button_info" @click="handle_change('_about')"><fa icon="circle-info" style="margin-right: 1px;"/> Обо мне</button>
-            <button class="button_info" @click="handle_change('_study')"><fa icon="book" /> Обучение</button>
-            <button class="button_info" @click="handle_change('_code')"><fa icon="code" /> Разработка</button>
-            <button class="button_info button_contact" @click="handle_change('_contact')"><fa icon="address-book" /> Контакты</button>
+            <button class="button_info" @click="handle_change('_about')" aria-label = "Обо мне"><fa icon="circle-info" style="margin-right: 1px;"/> Обо мне</button>
+            <button class="button_info" @click="handle_change('_study')" aria-label = "Обучение"><fa icon="book" /> Обучение</button>
+            <button class="button_info" @click="handle_change('_code')" aria-label = "Разработка"><fa icon="code"  /> Разработка</button>
+            <button class="button_info button_contact" @click="handle_change('_contact')" aria-label = "Контакты"><fa icon="address-book" /> Контакты</button>
         </div>
         
 
         <div class="mobile_nav">
             <h3 style="color: white; font-size: 22px;" @click.prevent="toggleDropdown"><fa icon ="compass"/></h3>
             <ul v-if="isDropdownOpen" class="dropdown-menu">
-                <li @click="handle_change('_about')"><a href="#" class="nav_link"><fa icon="circle-info" style="margin-right: 1px;"/> Обо мне</a></li>
-                <li @click="handle_change('_study')"><a href="#" class="nav_link"><fa icon="book" /> Обучение</a></li>
-                <li @click="handle_change('_code')"><a href="#" class="nav_link"><fa icon="code" /> Разработка</a></li>
-                <li @click="handle_change('_contact')"><a href="#" class="nav_link"><fa icon="address-book" /> Контакты</a></li>
+                <li @click="handle_change('_about')" aria-label = "Обо мне"><a href="#" class="nav_link"><fa icon="circle-info" style="margin-right: 1px;"/> Обо мне</a></li>
+                <li @click="handle_change('_study')" aria-label = "Обучение"><a href="#" class="nav_link"><fa icon="book" /> Обучение</a></li>
+                <li @click="handle_change('_code')" aria-label = "Разработка"><a href="#" class="nav_link"><fa icon="code" /> Разработка</a></li>
+                <li @click="handle_change('_contact')" aria-label = "Контакты"><a href="#" class="nav_link"><fa icon="address-book" /> Контакты</a></li>
               </ul>
         </div>
     </div>
@@ -32,19 +32,19 @@
 
         <div class="info">
             <nuxt-link to="/" class="nav_link">
-                <button class="button_info"><fa icon="house"  style="margin-right: 3px; margin-top: -20px;" />На главную</button>
+                <button class="button_info" aria-label = "На главную"><fa icon="house"  style="margin-right: 3px; margin-top: -20px;" />На главную</button>
             </nuxt-link>
             
             <nuxt-link to="/study" class="nav_link">
-                <button class="button_info"><fa icon="book" /> Обучение</button>
+                <button class="button_info" aria-label = "Обучение"><fa icon="book" /> Обучение</button>
             </nuxt-link>
 
             <nuxt-link to = "/code" class="nav_link">
-                <button class="button_info"><fa icon="code" /> Разработка</button>
+                <button class="button_info" aria-label = "Разработка"><fa icon="code" /> Разработка</button>
             </nuxt-link>
 
           
-            <button class="button_info button_contact" @click="handle_change('_contact')"><fa icon="address-book" /> Контакты</button>
+            <button class="button_info button_contact" aria-label = "Контакты" @click="handle_change('_contact')"><fa icon="address-book" /> Контакты</button>
         </div>
 
         <div class="mobile_nav" >

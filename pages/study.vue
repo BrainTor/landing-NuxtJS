@@ -112,7 +112,7 @@
                             друзей и близких своими умениями и покажите им, как вы воплотили известную игру в жизнь.
                         </p>
                         <nuxt-link to="/games/cross">
-                            <button class="expample" style="margin-top: 85px;">Играть</button>
+                            <button class="expample" style="margin-top: 85px;" aria-label = "Играть">Играть</button>
                         </nuxt-link>
                     </div>
 
@@ -126,7 +126,7 @@
                             руками.
                         </p>
                         <nuxt-link to="/games/calc">
-                            <button class="expample" style="margin-top: 100px;">Посчитать</button>
+                            <button class="expample" style="margin-top: 100px;" aria-label = "Играть">Посчитать</button>
                         </nuxt-link>
                     </div>
 
@@ -145,7 +145,7 @@
 
                         <nuxt-link to="/games/find_tres">
 
-                            <button class="expample">Играть</button>
+                            <button class="expample" aria-label = "Играть">Играть</button>
                         </nuxt-link>
                     </div>
 
@@ -161,7 +161,7 @@
                         </p>
 
                         <nuxt-link to="/games/ham">
-                            <button class="expample">Играть</button>
+                            <button class="expample" aria-label = "Играть">Играть</button>
                         </nuxt-link>
                     </div>
 

@@ -5,7 +5,7 @@
     
     <!-- Контент модального окна -->
     <div class="modal-content">
-      <button class="close-btn" @click="closeModal">&times;</button>
+      <button class="close-btn" @click="closeModal" aria-label = "Закрыть">&times;</button>
       <h2 class="modal-title">Свяжитесь со мной</h2>
       <h3 v-if="isSomethingBad" class="error-message">Не заполнено одно из полей</h3>
       
@@ -67,8 +67,8 @@
         </div>
         
         <div class="modal-footer">
-          <button type="button" class="btn btn-close" @click="closeModal">Закрыть</button>
-          <button type="submit" class="btn btn-submit">Отправить</button>
+          <button type="button" class="btn btn-close" @click="closeModal" aria-label = "Закрыть">Закрыть</button>
+          <button type="submit" class="btn btn-submit" aria-label = "Отправить">Отправить</button>
         </div>
       </form>
     </div>

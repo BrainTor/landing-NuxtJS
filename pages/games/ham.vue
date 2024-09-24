@@ -29,7 +29,7 @@
 
         </div>
         <button style="width: fit-content; background-color: transparent; border: 0px;" @click="click_button"
-            ref="main_but">
+            ref="main_but" aria-label = "Монета">
             <img :src="img_src" class="ham_img_mobile" width="600px" alt ="Картинка монеты"
                 style="cursor: pointer;   -webkit-tap-highlight-color: transparent;user-select: none;outline: none;">
         </button>

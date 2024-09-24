@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+<yml_catalog>
+  <shop>
+    <name>Разработка на заказ Silver-tech</name>
+    <company>Silver-tech</company>
+    <url>https://silver-tech.ru/</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Создание программного обеспечения</category>
+    </categories>
+    <offers>
+      <offer id="101" type="event-ticket" available="true">
+        <name>Создание веб-сайтов любой сложности</name>
+        <url>https://silver-tech.ru/</url>
+        <price>Договорная</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Создание современных веб-сайтов: от самых простых одностраничных до продвинутых интернет-магазинов.</description>
+      </offer>
+
+      <offer id="102" type="event-ticket" available="true">
+        <name>Создание мобильных приложений</name>
+        <url>https://silver-tech.ru/</url>
+        <price>Договорная</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Создание мобильных приложений любой сложности для операционной системы Android.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+      <offer id="103" type="event-ticket" available="true">
+        <name>Создание серверов для ваших приложений</name>
+        <url>https://silver-tech.ru/</url>
+        <price>Договорная</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Наши грамотные специалисты помогут создать серверные приложения для вашего программного обеспечения, от простых монолитных решений до сложных микросервисов. Помощь в развёртке.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+      <offer id="104" type="event-ticket" available="true">
+        <name>Создание приложений любой сложности для любых платформ</name>
+        <url>https://silver-tech.ru/</url>
+        <price>Договорная</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Создание приложений для любых платформ. Быстро, качественно, недорого.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+    </offers>
+  </shop>
+</yml_catalog>

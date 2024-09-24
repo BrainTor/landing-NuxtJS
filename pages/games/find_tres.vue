@@ -29,14 +29,14 @@
         <div style="display: flex; justify-content: center;">
             <div class="buttons">
                 <nuxt-link to = '/study'>
-                    <button class="controll_button" v-if="!is_mobile">Вернуться назад</button>
-                    <button class="controll_button" v-else><fa icon="chevron-left" /></button>
+                    <button class="controll_button" v-if="!is_mobile" aria-label = "Вернуться назад">Вернуться назад</button>
+                    <button class="controll_button" aria-label = "Вернуться назад" v-else><fa icon="chevron-left" /></button>
                 </nuxt-link>
                 
-                <button class="controll_button" onclick="window.location.reload()" v-if="!is_mobile">Перезапустить</button>
-                <button class="controll_button" onclick="window.location.reload()" v-else><fa icon="rotate-right" /></button>
-                <button class="controll_button" @click="new_lvl" v-if="is_win && !is_mobile">Следующий уровень</button>
-                <button class="controll_button" @click="new_lvl" v-else-if="is_win"><fa icon="chevron-right" /></button>
+                <button class="controll_button" onclick="window.location.reload()" v-if="!is_mobile" aria-label = "Перезагрузить">Перезапустить</button>
+                <button class="controll_button" onclick="window.location.reload()" v-else aria-label = "Перезагрузить"><fa icon="rotate-right" /></button>
+                <button class="controll_button" @click="new_lvl" v-if="is_win && !is_mobile" aria-label = "Следующий уровень">Следующий уровень</button>
+                <button class="controll_button" @click="new_lvl" v-else-if="is_win" aria-label = "Следующий уровень"><fa icon="chevron-right" /></button>
             </div>
         </div>
    

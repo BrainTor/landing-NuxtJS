@@ -13,13 +13,13 @@
                 <input class="input_calc" type="number" ref="numb1">
                 <div class="buttons_calc_mobile">  
                     <div>
-                        <button class="button_chast" @click="this.calc_res('+')">+</button>
-                        <button class="button_chast" @click="this.calc_res('-')">-</button>
+                        <button class="button_chast" aria-label = "Плюс" @click="this.calc_res('+')">+</button>
+                        <button class="button_chast" aria-label = "Минус" @click="this.calc_res('-')">-</button>
                     </div>
     
                     <div>
-                        <button class="button_chast" @click="this.calc_res('*')">*</button>
-                        <button class="button_chast" @click="this.calc_res('/')">/</button>
+                        <button class="button_chast" aria-label = "Умножить" @click="this.calc_res('*')">*</button>
+                        <button class="button_chast" aria-label = "Делить" @click="this.calc_res('/')">/</button>
                     </div>
                 </div>
     

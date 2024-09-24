@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE yml_catalog SYSTEM "shops.dtd">
+<yml_catalog>
+  <shop>
+    <name>Школа программирования Silver-tech</name>
+    <company>Silver-tech</company>
+    <url>https://silver-tech.ru/</url>
+    <currencies>
+      <currency id="RUR" rate="1"/>
+    </currencies>
+    <categories>
+      <category id="1">Онлайн занятие с преподавателем</category>
+    </categories>
+    <offers>
+      <offer id="101" type="event-ticket" available="true">
+        <name>Создание веб-сайтов для детей и взрослых</name>
+        <url>https://silver-tech.ru/</url>
+        <price>1650</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Научитесь создавать сайты любой сложности.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+      <offer id="102" type="event-ticket" available="true">
+        <name>Создание мобильных приложений</name>
+        <url>https://silver-tech.ru/</url>
+        <price>1650</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Научитесь создавать приложения для Android любой сложности.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+      <offer id="103" type="event-ticket" available="true">
+        <name>Создание серверных приложений</name>
+        <url>https://silver-tech.ru/</url>
+        <price>1650</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Научитесь создавать серверные приложения любой сложности: от простых монолитных до продвинутых микросервисов. Обучение профессии программиста с грамотным специалистом.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+      <offer id="104" type="event-ticket" available="true">
+        <name>Обучитесь современной профессии</name>
+        <url>https://silver-tech.ru/</url>
+        <price>1650</price>
+        <currencyId>RUR</currencyId>
+        <categoryId>1</categoryId>
+        <picture>https://silver-tech.ru/social.jpg</picture>
+        <delivery>false</delivery>
+        <description>Обучитесь современной и высокооплачиваемой профессии с практикующим специалистом. Для каждого ученика мы предлагаем индивидуальный план занятий.</description>
+        <age unit="year">от 11 до 45</age>
+      </offer>
+
+    </offers>
+  </shop>
+</yml_catalog>
