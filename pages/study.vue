@@ -86,6 +86,13 @@
 
 
         </section>
+        <ClientOnly>
+            <section ref="offer" class="offer_section_mobile" style="display: flex; flex-direction: column;">
+                <h2 v-if="is_mobile" style="text-align: center; font-size: 16px; margin-bottom: 20px;">Так же вы можете перелистывать с помощью свайпа!</h2>
+                <Card_study :picked = "id_to_card"></Card_study>
+            </section>
+        </ClientOnly>
+    
 
         <section style="background-color: #f0f0f0; padding-top: 20px; padding-bottom: 20px;"
             class="title_study_example">
@@ -182,15 +189,17 @@ import Nav_Component from '@/components/Nav_Component.vue';
 import Back_Button from '@/components/UI/Back_Button.vue';
 import Modal_ads from '@/components/Modal_ads.vue'
 import Modal_Connect from '@/components/Modal_Connect.vue';
+
 import axios from 'axios';
 import { useHead } from '@unhead/vue';
+import Card_study from '../components/UI/Card_study.vue';
 export default {
     name: 'study',
 
     components: {
         Nav_Component,
         Footer_Component,
-        Back_Button, Modal_ads, Modal_Connect
+        Back_Button, Modal_ads, Modal_Connect, Card_study
     },
     created(){
         this.updateMetaTags()
@@ -236,10 +245,34 @@ export default {
             startTime: 0,
             endTime: 0,
             local_ref: null,
-            modal_connect_visible: false
+            modal_connect_visible: false,
+            id_to_card:2,
+            is_mobile:false
         }
     },
     mounted() {
+        let from_hash = this.$route.hash
+        if(window.innerWidth<700)
+            this.is_mobile = true
+        if (from_hash) {
+            let matches = from_hash.match(/\d+/g)
+            if (matches && matches.length > 0) {
+                this.id_to_card = parseInt(matches[0]) - 100;
+            } else {
+                this.id_to_card = 0;
+            }
+        
+            setTimeout(()=>{
+                let check_el = this.$refs.offer
+                if(from_hash.replace(matches[0],"").replace("#", "")&&check_el)
+                check_el.scrollIntoView({ behavior: 'smooth' })
+            },100)
+   
+        } else {
+            this.id_to_card = 0;
+        }
+        
+        
         if (sessionStorage.getItem('ads') == null) {
             setTimeout(this.hadle_ads, this.randomTime)
             sessionStorage.setItem('ads', true)

@@ -5,6 +5,9 @@
     <name>Школа программирования Silver-tech</name>
     <company>Silver-tech</company>
     <url>https://silver-tech.ru/</url>
+     <picture>https://silver-tech.ru/logo.png</picture>
+     <phone>+7 960 459-34-45</phone>
+     <email>m.yacenko@gmail.com</email>
     <currencies>
       <currency id="RUR" rate="1"/>
     </currencies>
@@ -12,7 +15,7 @@
       <category id="1">Онлайн занятие с преподавателем</category>
     </categories>
     <offers>
-      <offer id="101" type="event-ticket" available="true">
+      <offer id="100" type="event-ticket" available="true">
         <name>Создание веб-сайтов для детей и взрослых</name>
         <url>https://silver-tech.ru/</url>
         <price>1650</price>
@@ -20,23 +23,27 @@
         <categoryId>1</categoryId>
         <picture>https://silver-tech.ru/social.jpg</picture>
         <delivery>false</delivery>
-        <description>Научитесь создавать сайты любой сложности.</description>
+        <description>Научитесь создавать сайты любой сложности: от простых одностраничных веб-страниц до продвинутых интернет-магазинов.</description>
+         <param name="План">Индивидуальный план занятий по веб-разработке</param>
+         <param name="Продолжительность">10 занятий по 1.5 часа</param>
         <age unit="year">от 11 до 45</age>
       </offer>
 
-      <offer id="102" type="event-ticket" available="true">
+      <offer id="101" type="event-ticket" available="true">
         <name>Создание мобильных приложений</name>
         <url>https://silver-tech.ru/</url>
         <price>1650</price>
         <currencyId>RUR</currencyId>
         <categoryId>1</categoryId>
         <picture>https://silver-tech.ru/social.jpg</picture>
+         <param name="План">Индивидуальный план занятий по веб-разработке</param>
+         <param name="Продолжительность">10 занятий по 1.5 часа</param>
         <delivery>false</delivery>
-        <description>Научитесь создавать приложения для Android любой сложности.</description>
+        <description>Освойте создание приложений для Android. Вы сможете разработать собственное приложение для бизнеса или овладеть востребованной профессией мобильного разработчика.</description>
         <age unit="year">от 11 до 45</age>
       </offer>
 
-      <offer id="103" type="event-ticket" available="true">
+      <offer id="102" type="event-ticket" available="true">
         <name>Создание серверных приложений</name>
         <url>https://silver-tech.ru/</url>
         <price>1650</price>
@@ -44,11 +51,13 @@
         <categoryId>1</categoryId>
         <picture>https://silver-tech.ru/social.jpg</picture>
         <delivery>false</delivery>
-        <description>Научитесь создавать серверные приложения любой сложности: от простых монолитных до продвинутых микросервисов. Обучение профессии программиста с грамотным специалистом.</description>
+         <param name="План">Индивидуальный план занятий по веб-разработке</param>
+         <param name="Продолжительность">10 занятий по 1.5 часа</param>
+        <description>Научитесь создавать серверные приложения любой сложности: от простых монолитных до современных микросервисов. Овладейте профессией программиста вместе с опытным наставником.</description>
         <age unit="year">от 11 до 45</age>
       </offer>
 
-      <offer id="104" type="event-ticket" available="true">
+      <offer id="103" type="event-ticket" available="true">
         <name>Обучитесь современной профессии</name>
         <url>https://silver-tech.ru/</url>
         <price>1650</price>
@@ -56,8 +65,10 @@
         <categoryId>1</categoryId>
         <picture>https://silver-tech.ru/social.jpg</picture>
         <delivery>false</delivery>
-        <description>Обучитесь современной и высокооплачиваемой профессии с практикующим специалистом. Для каждого ученика мы предлагаем индивидуальный план занятий.</description>
-        <age unit="year">от 11 до 45</age>
+         <param name="План">Индивидуальный план занятий по веб-разработке</param>
+         <param name="Продолжительность">10 занятий по 1.5 часа</param>
+         <description>Обучитесь востребованной и высокооплачиваемой профессии под руководством практикующего специалиста. Для каждого ученика мы разрабатываем индивидуальный план занятий</description>
+         <age unit="year">от 11 до 45</age>
       </offer>
 
     </offers>

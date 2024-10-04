@@ -305,6 +305,26 @@ body {
   height: 150px !important;
   font-size: 16px !important;
 }
+.mobile_img{
+  width: 100% !important;
+  
+
+}
+.text_ads_mobile{
+  font-size: 16px !important;
+  width: 90% !important;
+
+}
+.main_part_mobile{
+  width: 97% !important;
+}
+.offer_section_mobile{
+  display: flex;
+  justify-content: center;
+}
+.mobile_card_progs{
+  height: 100% !important;
+}
 }
 
 @media (hover: hover) {
@@ -359,6 +379,7 @@ body {
   color: white;  
 
 }
+
 }
 @media (hover: none) {
   .button_info:active {

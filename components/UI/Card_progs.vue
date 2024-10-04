@@ -1,7 +1,12 @@
 <template>
-    <div>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 20px; padding-right: 20px; ">
-            <button @click="next_or_before('left')" class="contoll_card"><fa icon="circle-left" aria-label = "Предыдущий"/></button>
+    <div style="display: flex; flex-direction: column; width: 100%;"
+    @touchstart="handleTouchStart"
+    @touchmove="handleTouchMove"
+    @touchend="handleTouchEnd"
+    >
+        <h2 v-if="is_mobile" style="text-align: center; font-size: 16px; margin-bottom: 20px; margin-top: 20px;">Так же вы можете перелистывать с помощью свайпа!</h2>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-left: 20px; padding-right: 20px; height: 670px; " class="mobile_card_progs">
+            <button @click="next_or_before('left')" v-if="!is_mobile" class="contoll_card"><fa icon="circle-left" aria-label = "Предыдущий"/></button>
             <div class="central_continer">
                 <transition :name="transitionName" mode="out-in">
                     <img :src="img_default" class="img_card" :key="img_default">
@@ -13,7 +18,7 @@
                     <p v-html="text_default" :key="text_default" class="text-block mobile_text"></p>
                 </transition>
             </div>
-            <button @click="next_or_before('right')" class="contoll_card" aria-label = "Следующий">
+            <button v-if="!is_mobile" @click="next_or_before('right')" class="contoll_card" aria-label = "Следующий">
                 <fa icon="circle-right" />
             </button>
       
@@ -95,10 +100,16 @@ export default {
             company_default: '',
             img_default: '',
             current_number: 0,
-            transitionName: 'slide-right' // По умолчанию слайд вправо
+            transitionName: 'slide-right', // По умолчанию слайд вправо
+            is_mobile:false,
+            touchStartX: 0,
+            touchEndX: 0,
+            minSwipeDistance: 50,
         }
     },
     mounted() {
+        if(window.innerWidth<700)
+            this.is_mobile = true
         this.text_default = this.object.text[0]
         this.company_default = this.object.companys[0]
         this.img_default = this.object.imgs[0]
@@ -120,7 +131,26 @@ export default {
         }
         ,toggle_con(){
             this.$emit("toggle")
+        },
+        handleTouchStart(event) {
+        
+        this.touchStartX = event.changedTouches[0].screenX;
+      },
+      handleTouchMove(event) {
+        this.touchEndX = event.changedTouches[0].screenX;
+      },
+      handleTouchEnd() {
+        const distance = this.touchEndX - this.touchStartX;
+        if (Math.abs(distance) > this.minSwipeDistance) {
+          if (distance > 0) {
+            // Свайп вправо
+            this.next_or_before('left');
+          } else {
+            // Свайп влево
+            this.next_or_before('right');
+          }
         }
+      }
     }
 }
 </script>

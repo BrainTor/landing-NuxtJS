@@ -388,11 +388,12 @@ export default {
   position: relative;
   background-size: 100%;
   overflow: hidden;
+  clip-path: inset(0);
 }
 
 
 .img_undercover {
-  position: absolute;
+  position: fixed;
   width: 100%;
   /* Изображение занимает всю ширину экрана */
   height: 100vh;
