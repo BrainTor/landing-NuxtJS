@@ -72,7 +72,7 @@ export default {
                 return this.is_win = true
         },
         async send_location(ref, time) {
-            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+            axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_location`, {
                 location: 'game_cross',
                 referal: ref,
                 time: time

@@ -3,7 +3,7 @@
 
     <Nav_Component @scroll_to="handle_nav" place="main" class="nav_bar" />
 
-    <Modal_Connect :isVisible="isVisible" @close="togle_Modal" />
+    <Modal_Connect :isVisible="isVisible" @close="close_connect" />
 
 
     <section class="header_section">
@@ -21,7 +21,7 @@
       </div>
     </section>
 
-    <Modal_ads @close_ads="hadle_ads" :isVisible_ads="is_Visible_ads">
+    <Modal_ads @close_ads="close_ads" :isVisible_ads="is_Visible_ads">
       <p style="font-size: 16.5px; margin-top: 10px;margin-bottom: 10px; text-align: center; font-size: 18.3px;" class="mobile_text">Напишите ваш, номер телефона и получите
         скидку<br>на все услуги в размере <strong>15 процентов</strong></p>
     </Modal_ads>
@@ -328,9 +328,16 @@ export default {
     togle_Modal() {
       this.isVisible = !this.isVisible
     },
+    close_connect(){
+      this.isVisible = false
+    },
     hadle_ads() {
       this.is_Visible_ads = !this.is_Visible_ads
-    }, handle_ads_func() {
+    },
+    close_ads(){
+      this.is_Visible_ads = false
+    },
+    handle_ads_func() {
       setTimeout(() => {
         if (!this.isVisible) {
           this.hadle_ads()
@@ -341,7 +348,7 @@ export default {
       }, this.randomTime)
     },
     async send_location(ref, time) {
-      axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+      axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_location`, {
         location: 'main_page',
         referal: ref,
         time: time
@@ -395,13 +402,11 @@ export default {
 .img_undercover {
   position: fixed;
   width: 100%;
-  /* Изображение занимает всю ширину экрана */
   height: 100vh;
-  /* Изображение занимает всю высоту экрана */
   object-fit: cover;
   /* Изображение сохраняет пропорции, занимая весь контейнер */
   object-position: center top;
-  /* Центрируем изображение в контейнере */
+ 
   display: block;
 }
 

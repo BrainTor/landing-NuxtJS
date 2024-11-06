@@ -7,7 +7,7 @@
             </div>
         </Modal_ads>
 
-        <Modal_Connect :isVisible="isVisible" @close="togle_Modal" />
+        <Modal_Connect :isVisible="isVisible" @close="close_connect" />
         <div ref="nav">
 
         </div>
@@ -141,7 +141,7 @@ import Nav_Component from '@/components/Nav_Component.vue';
 import Modal_ads from '@/components/Modal_ads.vue'
 import Card_progs from '@/components/UI/Card_progs.vue';
 import Modal_Connect from '@/components/Modal_Connect.vue';
-import img from '@/assets/img/progs/cyber.jpg'
+import img from '@/assets/img/progs/cyber.webp'
 import img1 from '@/assets/img/progs/block.jpg'
 import axios from 'axios';
 import { useHead } from '@unhead/vue';
@@ -173,8 +173,14 @@ export default {
         hadle_ads() {
             this.is_Visible_ads = !this.is_Visible_ads
         },
+        close_ads(){
+            this.close_ads = false
+        },
         togle_Modal() {
             this.isVisible = !this.isVisible
+        },
+        close_connect(){
+            this.isVisible = false
         },
         handle_navbar(data) {
             let check_el = this.$refs['section' + data]
@@ -182,7 +188,7 @@ export default {
         },
         async send_location(ref, time) {
 
-            await axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+            await axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_location`, {
                 location: 'code_page',
                 referal: ref,
                 time: time

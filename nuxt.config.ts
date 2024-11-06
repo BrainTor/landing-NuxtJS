@@ -3,15 +3,12 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   // Nitro preset
   nitro: {
-    preset: 'node-server', // Убедитесь, что выбран правильный режим работы Nitro
-
+    preset: 'node-server'
   },
 
   runtimeConfig: {
-
     public: {
-      NUXT_APP_BACK_IP: process.env.NUXT_APP_BACK_IP, 
-      NUXT_APP_BACK_PORT:process.env.NUXT_APP_BACK_PORT,
+      NUXT_APP_BACK_URL: process.env.NUXT_APP_BACK_URL, 
       NUXT_APP_LINK:process.env.NUXT_APP_LINK
     }
   },
@@ -54,25 +51,25 @@ export default defineNuxtConfig({
             }
           })
         },
-  //       {
-  //         hid:'custom-script',
-  //         innerHTML:
-  //         `
-  //         (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-  //  m[i].l=1*new Date();
-  //  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-  //  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-  //  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+        {
+          hid:'custom-script',
+          innerHTML:
+          `
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-  //  ym(98446584, "init", {
-  //       clickmap:true,
-  //       trackLinks:true,
-  //       accurateTrackBounce:true,
-  //       webvisor:true
-  //  });
-  //         `,
-  //         type:'text/javascript'
-  //       }
+   ym(98551603, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+          `,
+          type:'text/javascript'
+        }
       ],
       noscript:[
         {

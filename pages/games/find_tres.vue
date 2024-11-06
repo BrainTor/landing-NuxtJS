@@ -150,7 +150,7 @@ export default {
             this.$refs.chest_row.appendChild(this.chests[chest_ref_name]);
         },
         async send_location(ref , time) {
-            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+            axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_location`, {
                 location: 'game_tres',
                 referal: ref, 
                 time:time

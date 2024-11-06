@@ -17,6 +17,7 @@
             
             <div style="display: flex; flex-direction: column; align-items:center; width: 90%;">
                 <h3 style="text-align: center; color:red" class="spawn" v-if="is_number_bad">Вы ввели неверный номер телефона</h3>
+                <h3 v-if="isSend" class="error-message" style="color: rgb(30, 181, 30);">Сообщение успешно отправлено</h3>
                 <input type="text" ref="number_input" class="input_two_row" placeholder="+7 909 000 00 00" style="margin-top: 10px;">
                 <p style="margin-bottom: 0;margin-top: 15px;">Скидка действует {{ formatTime(timeRemaining) }}</p>
                 <button class="accept" @click="send_ads" aria-label = "Отправить">Отправить</button>
@@ -61,13 +62,18 @@ export default {
     },
     async send_ads(){
         if(this.$refs.number_input.value != '')
-            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_ads`,{
+            axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_ads`,{
                 number:this.$refs.number_input.value 
             })
         else
             return this.is_number_bad = true 
-            
-        this.$emit('close_ads');
+            this.isSend = true
+        setTimeout(()=>{
+          this.isSend = false
+          this.is_number_bad = false
+          this.$emit('close_ads');
+        },2000)    
+        
     }
     },
     data() {
@@ -75,7 +81,8 @@ export default {
             handleEscapeKey: null,
             timeRemaining: 3 * 3600 + 47 * 60,
             timer: null,
-            is_number_bad:false
+            is_number_bad:false,
+            isSend:false
         }
     },
     mounted() {

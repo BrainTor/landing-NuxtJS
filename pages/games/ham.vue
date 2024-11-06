@@ -61,7 +61,7 @@
 <script>
 import Back_Button from '@/components/UI/Back_Button.vue';
 import axios from 'axios';
-import coin1 from '@/assets/img/games/coin1.png'
+import coin1 from '@/assets/img/games/coin1.webp'
 import coin2 from '@/assets/img/games/coin2.png'
 import coin3 from '@/assets/img/games/coin3.png'
 import coin4 from '@/assets/img/games/coin4.png'
@@ -97,7 +97,7 @@ export default {
         Back_Button
     }, methods: {
         async send_location(ref, time) {
-            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+            axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_location`, {
                 location: 'game_ham',
                 referal: ref,
                 time: time

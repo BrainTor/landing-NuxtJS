@@ -1,8 +1,8 @@
 <template>
     <div>
         <Nav_Component @scroll_to="handle_scroll" place="study"></Nav_Component>
-        <Modal_Connect :isVisible="modal_connect_visible" @close="handle_connect()"></Modal_Connect>
-        <Modal_ads @close_ads="hadle_ads" :isVisible_ads="is_Visible_ads">
+        <Modal_Connect :isVisible="modal_connect_visible" @close="close_connect()"></Modal_Connect>
+        <Modal_ads @close_ads="close_ads" :isVisible_ads="is_Visible_ads">
             <p style="font-size: 18.3px; margin-top: 10px;margin-bottom: 10px;" class="mobile_text">Напишите ваш, номер телефона и получите
                 скидку<br>на первое занятие в размере 15% <br>
                 И пробное занятие <strong>бесплатно</strong>
@@ -91,6 +91,12 @@
                 <h2 v-if="is_mobile" style="text-align: center; font-size: 16px; margin-bottom: 20px;">Так же вы можете перелистывать с помощью свайпа!</h2>
                 <Card_study :picked = "id_to_card"></Card_study>
             </section>
+            <div style="display: flex; justify-content: center;">
+                <button class="connect_with_me"  aria-label = "Свяжитесь со мной" @click="handle_connect">
+                    <fa icon="link" /> Свяжитесь со мной
+                  </button>
+            </div>
+
         </ClientOnly>
     
 
@@ -110,7 +116,7 @@
                 <div class="buttons">
 
                     <div class="card">
-                        <img src="@/assets/img/study/cross.jpg" style="width: 200px;" alt="Фото крестики - нолики ">
+                        <img src="@/assets/img/study/cross.webp" style="width: 200px;" alt="Фото крестики - нолики ">
                         <h3>Крестики — нолики</h3>
                         <p>
                             Классическая логическая игра, знакомая каждому с детства. Представьте, что вы можете не
@@ -124,7 +130,7 @@
                     </div>
 
                     <div class="card">
-                        <img src="@/assets/img/study/calc.jpg" style="width: 200px;" alt="Калькулятор, фото ">
+                        <img src="@/assets/img/study/calc.webp" style="width: 200px;" alt="Калькулятор, фото ">
                         <h3>Калькулятор</h3>
                         <p>
                             Незаменимое приложение, которым мы пользуемся ежедневно. Что если вы сможете разработать
@@ -139,7 +145,7 @@
 
 
                     <div class="card">
-                        <img src="@/assets/img/study/chest.jpg" style="height: 200px;" alt="Фото поиск сокровищ">
+                        <img src="@/assets/img/study/chest.webp" style="height: 200px;" alt="Фото поиск сокровищ">
                         <h3>Поиск сокровищ</h3>
                         <p>
                             Погрузитесь в мир приключений и создайте свою собственную игру "Поиск сокровищ". Эта
@@ -214,10 +220,12 @@ export default {
         },
         handle_connect() {
             this.modal_connect_visible = !this.modal_connect_visible
-        }
-        ,
+        },close_connect(){
+            this.modal_connect_visible = false 
+        },
+        close_ads(){this.is_Visible_ads = false},
         async send_location(ref, time) {
-            axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_location`, {
+            axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_location`, {
                 location: 'study_page',
                 referal: ref,
                 time: time
@@ -294,6 +302,18 @@ export default {
 
 
 <style scoped>
+.connect_with_me{
+    background-color: var(--main-color);
+    width: 600px;
+    height: 50px;
+    outline: none;
+    border: 0px;
+    transition: 0.6s all;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 40px;
+}
 .profile-card {
     display: flex;
     align-items: center;

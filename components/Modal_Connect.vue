@@ -1,13 +1,13 @@
 <template>
   <div v-if="isVisible" class="modal-container">
-    <!-- Фон модального окна с возможностью закрытия по клику -->
+
     <div class="modal-overlay" @click="closeModal"></div>
     
-    <!-- Контент модального окна -->
     <div class="modal-content">
       <button class="close-btn" @click="closeModal" aria-label = "Закрыть">&times;</button>
       <h2 class="modal-title">Свяжитесь со мной</h2>
       <h3 v-if="isSomethingBad" class="error-message">Не заполнено одно из полей</h3>
+      <h3 v-if="isSend" class="error-message" style="color: rgb(30, 181, 30);">Сообщение успешно отправлено</h3>
       
       <form @submit.prevent="sendQuestion" class="modal-form">
         <div class="form-group">
@@ -88,6 +88,7 @@ export default {
   data() {
     return {
       isSomethingBad: false,
+      isSend:false, 
       form: {
         name: '',
         thirdName: '',
@@ -104,22 +105,25 @@ export default {
     },
     async sendQuestion() {
       const { name, thirdName, number, social, message } = this.form;
-      
-      // Проверка обязательных полей
-      if (!name || !thirdName || (!number && !social) || !message) {
+      if (name=='' || thirdName=='' || (number=='' && social=='') || message=='') {
         this.isSomethingBad = true;
         return;
       }
       
       try {
-      
-        await axios.post(`http://${this.$config.public.NUXT_APP_BACK_IP}:${this.$config.public.NUXT_APP_BACK_PORT}/send_connect`, {
+        await axios.post(`https://${this.$config.public.NUXT_APP_BACK_URL}/send_connect`, {
           name,
           third_name: thirdName,
           addres: number ? number : social,
           his_text: message
         });
-        this.closeModal();
+        this.isSend = true
+        setTimeout(()=>{
+          this.closeModal();
+          this.isSend = false
+          this.isSomethingBad = false
+        },2000)
+
       } catch (error) {
         console.error('Ошибка при отправке данных:', error);
         this.isSomethingBad = true;
